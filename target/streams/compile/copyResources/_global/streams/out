@@ -1,0 +1,5 @@
+[debug] Copy resource mappings: 
+[debug] 	(/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/logback.xml,/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/target/scala-2.13/classes/logback.xml)
+[debug] 	(/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/messages,/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/target/scala-2.13/classes/messages)
+[debug] 	(/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/application.conf,/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/target/scala-2.13/classes/application.conf)
+[debug] 	(/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes,/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/target/scala-2.13/classes/routes)

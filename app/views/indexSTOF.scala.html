@@ -1,0 +1,45 @@
+@(welcome: String, posts: Seq[PostSTOF])(implicit session: Session)
+@import b3._
+@mainSTOF(welcome, session) {
+    @defining(play.core.PlayVersion.current) { version =>
+        <div id="content" class="wrapper doc">
+            <h1>@welcome</h1>
+
+            <btn><a href= @controllers.routes.PostControllerSTOF.sortByDate >sort by date</a></btn>
+            <btn><a href= @controllers.routes.PostControllerSTOF.sortByVotes >sort by votes</a></btn>
+
+
+
+            <h4> Search</h4>
+                <form action = @routes.PostControllerSTOF.searchByTag("fzefez")" method="get">
+                <input type="text" name="tag" placeholder="Enter your search query">
+                <input type="submit" value="Search">
+            </form>
+
+
+            <dl>
+            @for(post <- posts) {
+                <dl class="dl-horizontal" >
+                    <dt>text:</dt>
+                    <dd>@post.text </dd>
+
+                    <dt>code:</dt>
+                    <dd>@post.code</dd>
+
+                    <dt>date:</dt>
+                    <dd>@post.date</dd>
+
+                    <dt>votes: </dt>
+                    <dd>@post.votes</dd>
+
+                    <dt>Tags: </dt>
+                    <dd> @post.tags.mkString(",")</dd>
+
+                    <btn><a >more details</a></btn>
+                </dl>
+            }
+            </dl>
+    }
+        </div>
+
+    }

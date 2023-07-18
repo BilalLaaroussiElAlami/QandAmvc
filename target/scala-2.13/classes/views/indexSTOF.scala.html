@@ -1,0 +1,36 @@
+@(welcome: String, posts: Seq[Post])(implicit session: Session)
+
+
+@mainSTOF(welcome, session) {
+    @defining(play.core.PlayVersion.current) { version =>
+        <div id="content" class="wrapper doc">
+                <h1>@welcome</h1>
+            @for(post <- posts) {
+                <tr>
+                    <td>@post.code</td>
+                    <td>@post.date </td>
+                    <td>@post.votes </td>
+                    <td>@post.tags </td>
+                </tr>
+
+
+                @b3.form(action = routes.Products.save()) {
+                    <fieldset>
+                        <legend>(new)</legend>
+                        EAN: @b3.text(productForm("ean"))
+                        Name: @b3.text(productForm("name"))
+                        Description: @b3.textarea(productForm("description"))
+                    </fieldset>
+                    @b3.submit(Symbol("class") -> "btn btn-default"){ Add }
+                }
+            }
+            }
+        </div>
+
+
+
+
+
+
+    }
+}

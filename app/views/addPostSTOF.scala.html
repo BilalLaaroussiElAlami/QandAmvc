@@ -1,0 +1,20 @@
+@(productForm: Form[Product])(implicit session: Session, request: RequestHeader, messagesProvider: MessagesProvider, flash: Flash)
+
+@import b3._
+@implicitFieldConstructor = @{ b3.vertical.fieldConstructor() }
+
+
+@mainSTOF("Add post", session) {
+    <h2>Post Details</h2>
+
+    @b3.form(action = routes.HomeControllerSTOF.index) {
+        <fieldset>
+            <legend>(new)</legend>
+            text: @b3.textarea(productForm("text"))
+            code: @b3.textarea(productForm("code"))
+            tags: @b3.text(productForm("tags[]"))
+
+        </fieldset>
+        @b3.submit(Symbol("class") -> "btn btn-default"){ Add }
+    }
+}
