@@ -1,20 +1,22 @@
-@(productForm: Form[Product])(implicit session: Session, request: RequestHeader, messagesProvider: MessagesProvider, flash: Flash)
+@(postForm: Form[PostSTOF])(implicit session: Session, request: RequestHeader, messagesProvider: MessagesProvider, flash: Flash)
 
 @import b3._
 @implicitFieldConstructor = @{ b3.vertical.fieldConstructor() }
 
 
 @mainSTOF("Add post", session) {
-    <h2>Post Details</h2>
 
-    @b3.form(action = routes.HomeControllerSTOF.index) {
+    <div id="content" class="wrapper doc">
+    <h2>Post Details</h2>
+    @b3.form(action =  helper.CSRF(routes.PostControllerSTOF.save())) {
         <fieldset>
             <legend>(new)</legend>
-            text: @b3.textarea(productForm("text"))
-            code: @b3.textarea(productForm("code"))
-            tags: @b3.text(productForm("tags[]"))
-
+            text: @b3.textarea(postForm("text"))
+            code: @b3.textarea(postForm("code"))
+            tags: @b3.text(postForm("tags[]"))
         </fieldset>
-        @b3.submit(Symbol("class") -> "btn btn-default"){ Add }
+        @b3.submit(Symbol("class") -> "btn btn-default"){ Add}
+        @b3.submit(Symbol("class") -> "btn btn-default"){ Cancel}
     }
+    </div>
 }

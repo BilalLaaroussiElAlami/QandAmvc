@@ -107,16 +107,6 @@ package controllers.javascript {
     }
 
   
-    // @LINE:27
-    def sortByDate: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PostControllerSTOF.sortByDate",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/sortedByDate"})
-        }
-      """
-    )
-  
     // @LINE:28
     def sortByVotes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PostControllerSTOF.sortByVotes",
@@ -127,12 +117,32 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:31
+    def save: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.PostControllerSTOF.save",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage"})
+        }
+      """
+    )
+  
     // @LINE:29
     def searchByTag: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PostControllerSTOF.searchByTag",
       """
         function(tag0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/searchByTag" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("tag", tag0)])})
+        }
+      """
+    )
+  
+    // @LINE:27
+    def sortByDate: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.PostControllerSTOF.sortByDate",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/sortedByDate"})
         }
       """
     )

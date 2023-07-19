@@ -38,12 +38,7 @@
 [warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
 [warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
 [warn] GET /frontpage/sortedByVotes        controllers.PostControllerSTOF.sortByVotes
-[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/app/views/mainSTOF.scala.html:48:69: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method newProduct,
-[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
-[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
-[warn]                             <li><a href="@routes.PostControllerSTOF.newProduct">Add Post</a></li>
-[warn]                                                                     ^
-[warn] 11 warnings found
+[warn] 10 warnings found
 [warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:6:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method index,
 [warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
 [warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
@@ -84,12 +79,7 @@
 [warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
 [warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
 [warn] GET /frontpage/sortedByVotes        controllers.PostControllerSTOF.sortByVotes
-[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/app/views/mainSTOF.scala.html:48:69: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method newProduct,
-[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
-[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
-[warn]                             <li><a href="@routes.PostControllerSTOF.newProduct">Add Post</a></li>
-[warn]                                                                     ^
-[warn] 11 warnings found
+[warn] 10 warnings found
 [warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/app/controllers/UserController.scala:52:53: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method bindFromRequest,
 [warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
 [warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.

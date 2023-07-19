@@ -82,22 +82,28 @@ package controllers {
     }
 
   
-    // @LINE:27
-    def sortByDate: Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "frontpage/sortedByDate")
-    }
-  
     // @LINE:28
     def sortByVotes: Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "frontpage/sortedByVotes")
     }
   
+    // @LINE:31
+    def save(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "frontpage")
+    }
+  
     // @LINE:29
     def searchByTag(tag:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "frontpage/searchByTag" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("tag", tag)))))
+    }
+  
+    // @LINE:27
+    def sortByDate: Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/sortedByDate")
     }
   
     // @LINE:30

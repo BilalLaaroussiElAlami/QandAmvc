@@ -28,3 +28,4 @@ GET /frontpage/sortedByDate         controllers.PostControllerSTOF.sortByDate
 GET /frontpage/sortedByVotes        controllers.PostControllerSTOF.sortByVotes
 GET /frontpage/searchByTag          controllers.PostControllerSTOF.searchByTag(tag:String)
 GET /frontpage/new                  controllers.PostControllerSTOF.newProduct()
+POST /frontpage                     controllers.PostControllerSTOF.save()

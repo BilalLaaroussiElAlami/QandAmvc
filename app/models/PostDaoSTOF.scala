@@ -1,6 +1,7 @@
 package models
 
 import javax.inject.Inject
+import scala.::
 
 @javax.inject.Singleton
 class PostDaoSTOF @Inject()() {
@@ -14,18 +15,19 @@ class PostDaoSTOF @Inject()() {
     PostSTOF("What is an if", "if true ok", 2017, 2, List("beginner")),
     PostSTOF("What is an if", "if true ok", 2017, 2, List("beginner")),
     PostSTOF("What is an if", "if true ok", 2017, 2, List("beginner")))
-  
+
+  def add(p:PostSTOF) = {
+    posts = posts :+ p
+  }
   def lookupPost(p: PostSTOF): Boolean = {
     posts.contains(p)
   }
-
   def sortPostsByDate() = {
      posts.sortWith((p1,p2) => p1.date < p2.date)
   }
   def sortPostsByUpvotes() = {
      posts.sortWith((p1,p2) => p1.votes < p2.votes)
   }
-
   def searchByTag(tag:String) = {
     posts.filter(p => p.tags.contains(tag))
   }

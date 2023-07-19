@@ -74,6 +74,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/sortedByVotes""", """controllers.PostControllerSTOF.sortByVotes"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/searchByTag""", """controllers.PostControllerSTOF.searchByTag(tag:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/new""", """controllers.PostControllerSTOF.newProduct()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage""", """controllers.PostControllerSTOF.save()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -298,6 +299,24 @@ TODO change frontpage with posts""",
     )
   )
 
+  // @LINE:31
+  private[this] lazy val controllers_PostControllerSTOF_save12_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage")))
+  )
+  private[this] lazy val controllers_PostControllerSTOF_save12_invoker = createInvoker(
+    PostControllerSTOF_4.save(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PostControllerSTOF",
+      "save",
+      Nil,
+      "POST",
+      this.prefix + """frontpage""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -371,6 +390,12 @@ TODO change frontpage with posts""",
     case controllers_PostControllerSTOF_newProduct11_route(params@_) =>
       call { 
         controllers_PostControllerSTOF_newProduct11_invoker.call(PostControllerSTOF_4.newProduct())
+      }
+  
+    // @LINE:31
+    case controllers_PostControllerSTOF_save12_route(params@_) =>
+      call { 
+        controllers_PostControllerSTOF_save12_invoker.call(PostControllerSTOF_4.save())
       }
   }
 }

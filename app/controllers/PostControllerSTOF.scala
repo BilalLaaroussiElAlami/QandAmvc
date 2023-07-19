@@ -3,9 +3,8 @@ package controllers
 import models.{PostDaoSTOF, PostSTOF}
 import play.api.data.Form
 import play.api.data.Forms.{default, list, longNumber, mapping, nonEmptyText, number, tuple}
-import play.api.i18n.Messages.implicitMessagesProviderToMessages
 import play.api.i18n.MessagesProvider
-import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents, Request}
+import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents, Flash, Request}
 
 import javax.inject.{Inject, Singleton}
 
@@ -28,31 +27,50 @@ class PostControllerSTOF  @Inject()(cc: ControllerComponents, postDao: PostDaoST
     Ok(views.html.indexSTOF("POSTS", postDao.sortPostsByUpvotes()))
   }
 
+  import play.api.data.Form
+  import play.api.data.Forms._
 
-  private val postForm: Form[Product] =
+    //TODO verify user input
+  private val postForm: Form[PostSTOF] =
     Form(
       mapping(
         "text" -> nonEmptyText,
         "code" -> nonEmptyText,
         "date" -> default(number, 2023),
         "votes" -> default(number,0),
-        "tags" ->  list(nonEmptyText)
+        "tags" ->  list(nonEmptyText)  //TODO splitting user input and verifying > 3
       )
       (PostSTOF.apply)(PostSTOF.unapply)
     )
-  import play.api.data.Form
-  import play.api.data.Forms._
+
 
   def newProduct(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    /*println("called newProduct")
-    Ok(views.html.indexSTOF("POSTS", postDao.posts)) //TODO change to real implementation*/
+    println("called newProduct")
     val form =
       if (request.flash.get("error").isDefined)
         postForm.bind(request.flash.data)
       else
         postForm
-     val messagesProvider: MessagesProvider = messagesApi.preferred(request)
-    Ok(views.html.addPostSTOF(form)(messagesProvider = messagesProvider, session )
+    Ok(views.html.addPostSTOF(form))
+  }
+
+
+  def save() = Action { implicit request =>
+    print("called save")
+    val newProductForm = postForm.bindFromRequest()
+
+    newProductForm.fold(
+      hasErrors = { form =>
+        Redirect(routes.PostControllerSTOF.newProduct()).flashing(
+          Flash(form.data) +
+            ("error" -> "Please correct the errors in the form.")
+        )
+      },
+      success = { newProduct =>
+        postDao.add(newProduct)
+        Ok(views.html.indexSTOF("POSTS", postDao.posts))
+      }
+    )
   }
 
 
