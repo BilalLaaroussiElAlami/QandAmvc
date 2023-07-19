@@ -9,11 +9,11 @@
 [debug] > Exec(onFailure loadFailed, None, None)
 [debug] > Exec(loadp, None, None)
 [info] welcome to sbt 1.7.2 (Amazon.com Inc. Java 11.0.19)
-[debug] Load.defaultLoad until apply took 34.999291ms
-[debug]           Load.loadUnit: plugins took 46.226291ms
-[debug]           Load.loadUnit: defsScala took 0.128041ms
+[debug] Load.defaultLoad until apply took 43.439542ms
+[debug]           Load.loadUnit: plugins took 48.671834ms
+[debug]           Load.loadUnit: defsScala took 0.181583ms
 [debug] [Loading] Scanning directory /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/project
-[debug]             Load.loadUnit: mkEval took 4.209542ms
+[debug]             Load.loadUnit: mkEval took 4.310166ms
 [debug] [Loading] Found non-root projects 
 [debug] [Loading] Done in /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/project, returning: ()
 [debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
@@ -29,27 +29,27 @@
 [debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
 [debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
 [debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
-[debug] Plugins.deducer#function took 14.843916 ms
+[debug] Plugins.deducer#function took 6.921583 ms
 [info] loading settings for project session07_solution-build from plugins.sbt ...
-[debug]               Load.resolveProject(session07_solution-build) took 23.454959ms
-[debug]             Load.loadTransitive: finalizeProject(Project(id session07_solution-build, base: /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/project, plugins: List(<none>))) took 53.284667ms
+[debug]               Load.resolveProject(session07_solution-build) took 21.889042ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id session07_solution-build, base: /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/project, plugins: List(<none>))) took 42.883416ms
 [debug] [Loading] Done in /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/project, returning: (session07_solution-build)
-[debug]           Load.loadUnit: loadedProjectsRaw took 148.5455ms
-[debug]           Load.loadUnit: cleanEvalClasses took 2.123291ms
-[debug]         Load.loadUnit(file:/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/project/, ...) took 199.142125ms
-[debug]       Load.apply: load took 332.652666ms
-[debug]       Load.apply: resolveProjects took 2.381167ms
-[debug]       Load.apply: finalTransforms took 27.630833ms
-[debug]       Load.apply: config.delegates took 3.774875ms
-[debug]       Load.apply: Def.make(settings)... took 215.169542ms
-[debug]       Load.apply: structureIndex took 45.470042ms
-[debug]       Load.apply: mkStreams took 0.869666ms
+[debug]           Load.loadUnit: loadedProjectsRaw took 305.788208ms
+[debug]           Load.loadUnit: cleanEvalClasses took 1.783792ms
+[debug]         Load.loadUnit(file:/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/project/, ...) took 359.490666ms
+[debug]       Load.apply: load took 487.551834ms
+[debug]       Load.apply: resolveProjects took 2.415ms
+[debug]       Load.apply: finalTransforms took 28.56325ms
+[debug]       Load.apply: config.delegates took 2.8385ms
+[debug]       Load.apply: Def.make(settings)... took 215.132833ms
+[debug]       Load.apply: structureIndex took 51.299708ms
+[debug]       Load.apply: mkStreams took 1.013792ms
 [info] loading project definition from /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/project
 [debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
-[debug]     Load.loadUnit: plugins took 1244.1815ms
-[debug]     Load.loadUnit: defsScala took 0.002292ms
+[debug]     Load.loadUnit: plugins took 1421.352541ms
+[debug]     Load.loadUnit: defsScala took 0.002ms
 [debug] [Loading] Scanning directory /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution
-[debug]       Load.loadUnit: mkEval took 0.21775ms
+[debug]       Load.loadUnit: mkEval took 0.1355ms
 [debug] [Loading] Found root project root w/ remaining 
 [debug] deducing auto plugins based on known facts Set(Atom(play.sbt.PlayScala), Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
 [debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
@@ -135,21 +135,21 @@
 [debug] Clause(Atom(com.typesafe.sbt.web.SbtWeb),Set(Atom(com.typesafe.sbt.jse.SbtJsEngine)))
 [debug] Clause(Atom(com.typesafe.sbt.jse.SbtJsEngine),Set(Atom(com.typesafe.sbt.jse.SbtJsTask))))
 [debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,play.sbt.PlayScala,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,play.sbt.PlayWeb,play.twirl.sbt.SbtTwirl,sbt.plugins.JvmPlugin,play.sbt.PlayService,play.sbt.PlayFilters,play.sbt.PlayLayoutPlugin,play.sbt.routes.RoutesCompiler,com.typesafe.sbt.jse.SbtJsTask,com.typesafe.sbt.packager.archetypes.JavaServerAppPackaging,sbt.plugins.SemanticdbPlugin,sbt.plugins.JUnitXmlReportPlugin,play.sbt.PlayLogback,sbt.plugins.MiniDependencyTreePlugin,com.typesafe.sbt.jse.SbtJsEngine,play.sbt.PlayAkkaHttpServer,com.typesafe.sbt.web.SbtWeb,com.typesafe.sbt.packager.archetypes.JavaAppPackaging,com.typesafe.sbt.packager.rpm.RpmPlugin,com.typesafe.sbt.packager.archetypes.scripts.BashStartScriptPlugin,com.typesafe.sbt.packager.windows.WindowsPlugin,com.typesafe.sbt.packager.archetypes.scripts.BatStartScriptPlugin,com.typesafe.sbt.packager.docker.DockerPlugin,com.typesafe.sbt.packager.debian.DebianPlugin,com.typesafe.sbt.packager.universal.UniversalPlugin,com.typesafe.sbt.packager.linux.LinuxPlugin,com.typesafe.sbt.SbtNativePackager)
-[debug] Plugins.deducer#function took 5.739916 ms
+[debug] Plugins.deducer#function took 7.148666 ms
 [info] loading settings for project root from build.sbt ...
-[debug]         Load.resolveProject(root) took 46.147709ms
-[debug]       Load.loadTransitive: finalizeProject(Project(id root, base: /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution, plugins: List(play.sbt.PlayScala))) took 53.042083ms
+[debug]         Load.resolveProject(root) took 41.096ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id root, base: /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution, plugins: List(play.sbt.PlayScala))) took 50.294084ms
 [debug] [Loading] Done in /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution, returning: (root)
-[debug]     Load.loadUnit: loadedProjectsRaw took 83.180584ms
-[debug]     Load.loadUnit: cleanEvalClasses took 0.519792ms
-[debug]   Load.loadUnit(file:/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/, ...) took 1328.646875ms
-[debug] Load.apply: load took 1335.938625ms
-[debug] Load.apply: resolveProjects took 0.07125ms
-[debug] Load.apply: finalTransforms took 7.475583ms
-[debug] Load.apply: config.delegates took 0.463541ms
-[debug] Load.apply: Def.make(settings)... took 80.840583ms
-[debug] Load.apply: structureIndex took 19.509833ms
-[debug] Load.apply: mkStreams took 0.001833ms
+[debug]     Load.loadUnit: loadedProjectsRaw took 80.773542ms
+[debug]     Load.loadUnit: cleanEvalClasses took 0.542459ms
+[debug]   Load.loadUnit(file:/Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/, ...) took 1503.295333ms
+[debug] Load.apply: load took 1512.272417ms
+[debug] Load.apply: resolveProjects took 0.090709ms
+[debug] Load.apply: finalTransforms took 8.115292ms
+[debug] Load.apply: config.delegates took 0.499625ms
+[debug] Load.apply: Def.make(settings)... took 86.779042ms
+[debug] Load.apply: structureIndex took 23.066209ms
+[debug] Load.apply: mkStreams took 0.002125ms
 [info]   __              __
 [info]   \ \     ____   / /____ _ __  __
 [info]    \ \   / __ \ / // __ `// / / /
@@ -183,15 +183,7 @@
 [debug] Evaluating tasks: Compile / run
 [debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
 [debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
-[info] compiling 5 Scala sources to /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/target/scala-2.13/classes ...
-[info] done compiling
-[info] compiling 5 Scala sources to /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/target/scala-2.13/classes ...
-[info] done compiling
-[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
-[debug] Exporting web-assets:lab-session-7
-[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
-[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
-[info] compiling 2 Scala sources to /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/target/scala-2.13/classes ...
+[info] compiling 1 Scala source to /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/target/scala-2.13/classes ...
 [info] done compiling
 [debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
 [debug] Exporting web-assets:lab-session-7

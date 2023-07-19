@@ -1,7 +1,7 @@
 package controllers
 
 import models.{PostDaoSTOF, PostSTOF}
-import play.api.data.Form
+import play.api.data.{Form, Mapping}
 import play.api.data.Forms.{default, list, longNumber, mapping, nonEmptyText, number, tuple}
 import play.api.i18n.MessagesProvider
 import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents, Flash, Request}
@@ -30,26 +30,29 @@ class PostControllerSTOF  @Inject()(cc: ControllerComponents, postDao: PostDaoST
   import play.api.data.Form
   import play.api.data.Forms._
 
-    //TODO verify user input
-  private val postForm: Form[PostSTOF] =
-    Form(
-      mapping(
-        "title" -> nonEmptyText,
-        "text" -> nonEmptyText,
-        "code" -> nonEmptyText,
-        "date" -> default(number, 2023),
-        "votes" -> default(number,0),
-        "tags" ->  list(nonEmptyText)  //TODO splitting user input and verifying > 3
+      //TODO verify user input
+    private val postForm: Form[PostSTOF] =
+      Form(
+        mapping(
+          "title" -> nonEmptyText,
+          "text" -> nonEmptyText,
+          "code" -> nonEmptyText,
+          "date" -> default(number, 2023),
+          "votes" -> default(number,0),
+          "tags" ->  nonEmptyText.transform(f,g).verifying("maximum 3 tags", l => l.length < 4)
+        )
+        (PostSTOF.apply)(PostSTOF.unapply)
       )
-      (PostSTOF.apply)(PostSTOF.unapply)
-    )
+
+  def f(s:String):List[String] = s.split(",").toList
+  def g(l:List[String]):String = l.mkString(",")
 
 
   def newProduct(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     println("called newProduct")
     val form =
       if (request.flash.get("error").isDefined)
-        postForm.bind(request.flash.data)
+        postForm.bind(request.flash.data)  //if previous submission has errors we don't clear all fields -> more user friendly
       else
         postForm
     Ok(views.html.addPostSTOF(form))
@@ -68,8 +71,9 @@ class PostControllerSTOF  @Inject()(cc: ControllerComponents, postDao: PostDaoST
         )
       },
       success = { newProduct =>
+         print("newProduct: ",newProduct)
         postDao.add(newProduct)
-        Ok(views.html.indexSTOF("POSTS", postDao.posts))
+        Ok(views.html.indexSTOF("POSTS", postDao.posts))  //redirect to posts page
       }
     )
   }
