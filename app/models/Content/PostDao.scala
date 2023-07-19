@@ -6,7 +6,7 @@ import play.api.libs.json.JsResult.Exception
 import javax.inject.Inject
 
 @javax.inject.Singleton
-class ContentDao @Inject()() {
+class PostDao @Inject()() {
 
   var posts: Seq[Post] = Seq(
     Post("title",  "What does the * stand for?", "float *x", 2023, 0, List("C", "Pointer")),
@@ -18,9 +18,8 @@ class ContentDao @Inject()() {
     Post("title","What is an if", "if true ok", 2017, 2, List("beginner")),
     Post("title","What is an if", "if true ok", 2017, 2, List("beginner")))
 
-
-  def findbyId(idd:Int): Post = {
-    posts.find(p => p.id == idd).getOrElse(throw Exception(JsError("couldn't find post by id")))
+  def findbyId(id:Int): Post = {
+    posts.find(p => p.id == id).getOrElse(throw Exception(JsError("couldn't find post by id")))
   }
   def upvote(id: Int) = {
     val index = posts.indexWhere(p => p.id == id)
@@ -47,5 +46,11 @@ class ContentDao @Inject()() {
   def searchByTag(tag:String) = {
     posts.filter(p => p.tags.contains(tag))
   }
-  
+
+  def addAnswer(postId: Int, answerId: Int): Unit ={
+    val index = posts.indexWhere(p => p.id == postId)
+    val post = posts(index)
+    post.addAnswer(answerId)
+  }
+
 }

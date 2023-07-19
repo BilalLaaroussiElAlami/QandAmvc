@@ -9,7 +9,7 @@
 
     <div id="content" class="wrapper doc">
         <h2>Post Details</h2>
-        @b3.form(action =  helper.CSRF(routes.PostControllerSTOF.save())) {
+        @b3.form(action =  helper.CSRF(routes.ContentController.savePost())) {
         <fieldset>
             <legend>(new)</legend>
             title: @b3.textarea(postForm("title"))
@@ -21,8 +21,6 @@
         @b3.submit(Symbol("class") -> "btn btn-default"){ Add}
         </div>
         }
-        <a href="@routes.PostControllerSTOF.sortByDate">cancel</a>
-
-
+        <a href="@routes.HomeControllerSTOF.index">cancel</a>
     </div>
 }

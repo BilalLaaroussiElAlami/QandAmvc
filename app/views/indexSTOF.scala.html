@@ -6,12 +6,12 @@
         <div id="content" class="wrapper doc">
             <h1>@welcome</h1>
 
-            <btn><a href= @controllers.routes.PostControllerSTOF.sortByDate >sort by date</a></btn>
-            <btn><a href= @controllers.routes.PostControllerSTOF.sortByVotes >sort by votes</a></btn>
+            <btn><a href= @controllers.routes.ContentController.sortByDate >sort by date</a></btn>
+            <btn><a href= @controllers.routes.ContentController.sortByVotes >sort by votes</a></btn>
 
 
             <h4> Search</h4>
-                <form action = @routes.PostControllerSTOF.searchByTag("")" method="get">
+                <form action = @routes.ContentController.searchByTag("")" method="get">
                 <input type="text" name="tag" placeholder="Enter your search query">
                 <input type="submit" value="Search">
             </form>
@@ -42,9 +42,9 @@
                     <!-- only loged in users can vote -->
                     @if(session.get(models.Global.SESSION_USERNAME_KEY).nonEmpty) {
                         <ul>
-                            <button><a href="@routes.PostControllerSTOF.upvote(post.id)  "> upvote </a></button>
-                            <button><a href="@routes.PostControllerSTOF.downvote(post.id)"> downvote </a></button>
-                            <button>  answer </button>
+                            <button><a href="@routes.ContentController.upvote(post.id)  "> upvote </a></button>
+                            <button><a href="@routes.ContentController.downvote(post.id)"> downvote </a></button>
+                            <button><a href="@routes.ContentController.postWithAnswers(post.id)">Expand</a> </button>
                         </ul>
                     }
                 </dl>

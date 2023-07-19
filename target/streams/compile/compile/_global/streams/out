@@ -1,6 +1,4 @@
-[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/app/controllers/UserController.scala:54:53: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method bindFromRequest,
-[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
-[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
-[warn]         val formValidationResult: Form[User] = form.bindFromRequest
-[warn]                                                     ^
-[warn] one warning found
+[error] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/app/controllers/ContentController.scala:132:11: Cannot write an instance of play.api.mvc.Action[play.api.mvc.AnyContent] to HTTP response. Try to define a Writeable[play.api.mvc.Action[play.api.mvc.AnyContent]]
+[error]         Ok(postWithAnswers(postId))
+[error]           ^
+[error] one error found

@@ -24,11 +24,16 @@ GET /contacts controllers.ContactPageController.listContacts
 # ROUTES CONCERNING THE PROJCET:
 #TODO change frontpage with posts
 GET  /frontpage                      controllers.HomeControllerSTOF.index
-GET  /frontpage/sortedByDate         controllers.PostControllerSTOF.sortByDate
-GET  /frontpage/sortedByVotes        controllers.PostControllerSTOF.sortByVotes
-GET  /frontpage/searchByTag          controllers.PostControllerSTOF.searchByTag(tag:String)
-GET  /frontpage/new                  controllers.PostControllerSTOF.newProduct()
-POST /frontpage                     controllers.PostControllerSTOF.save()
-GET  /frontpage/upvote               controllers.PostControllerSTOF.upvote(id:Int)
-GET  /frontpage/downvote             controllers.PostControllerSTOF.downvote(id:Int)
+GET  /frontpage/sortedByDate         controllers.ContentController.sortByDate
+GET  /frontpage/sortedByVotes        controllers.ContentController.sortByVotes
+GET  /frontpage/searchByTag          controllers.ContentController.searchByTag(tag:String)
+GET  /frontpage/new                  controllers.ContentController.newPost()
+POST /frontpage                      controllers.ContentController.savePost()
+GET  /frontpage/upvote               controllers.ContentController.upvote(id:Int)
+GET  /frontpage/downvote             controllers.ContentController.downvote(id:Int)
+GET  /frontpage/upvoteAnswer         controllers.ContentController.upvoteAnswer(id:Int)
+GET  /frontpage/downvoteAnswer       controllers.ContentController.downvoteAnswer(id:Int)
 
+GET /frontpage/newAnswer             controllers.ContentController.newAnswer(postId:Int)
+GET  /postsWithAnswers               controllers.ContentController.postWithAnswers(postid:Int)
+POST /frontpage/saveAnswer           controllers.ContentController.saveAnswer(postId:Int)

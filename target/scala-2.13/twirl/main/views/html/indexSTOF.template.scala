@@ -30,12 +30,12 @@ Seq[Any](_display_(/*4.2*/mainSTOF(welcome, session)/*4.28*/ {_display_(Seq[Any]
         """),format.raw/*6.9*/("""<div id="content" class="wrapper doc">
             <h1>"""),_display_(/*7.18*/welcome),format.raw/*7.25*/("""</h1>
 
-            <btn><a href= """),_display_(/*9.28*/controllers/*9.39*/.routes.PostControllerSTOF.sortByDate),format.raw/*9.76*/(""" """),format.raw/*9.77*/(""">sort by date</a></btn>
-            <btn><a href= """),_display_(/*10.28*/controllers/*10.39*/.routes.PostControllerSTOF.sortByVotes),format.raw/*10.77*/(""" """),format.raw/*10.78*/(""">sort by votes</a></btn>
+            <btn><a href= """),_display_(/*9.28*/controllers/*9.39*/.routes.ContentController.sortByDate),format.raw/*9.75*/(""" """),format.raw/*9.76*/(""">sort by date</a></btn>
+            <btn><a href= """),_display_(/*10.28*/controllers/*10.39*/.routes.ContentController.sortByVotes),format.raw/*10.76*/(""" """),format.raw/*10.77*/(""">sort by votes</a></btn>
 
 
             <h4> Search</h4>
-                <form action = """),_display_(/*14.33*/routes/*14.39*/.PostControllerSTOF.searchByTag("")),format.raw/*14.74*/("""" method="get">
+                <form action = """),_display_(/*14.33*/routes/*14.39*/.ContentController.searchByTag("")),format.raw/*14.73*/("""" method="get">
                 <input type="text" name="tag" placeholder="Enter your search query">
                 <input type="submit" value="Search">
             </form>
@@ -66,9 +66,9 @@ Seq[Any](_display_(/*4.2*/mainSTOF(welcome, session)/*4.28*/ {_display_(Seq[Any]
                     <!-- only loged in users can vote -->
                     """),_display_(/*43.22*/if(session.get(models.Global.SESSION_USERNAME_KEY).nonEmpty)/*43.82*/ {_display_(Seq[Any](format.raw/*43.84*/("""
                         """),format.raw/*44.25*/("""<ul>
-                            <button><a href=""""),_display_(/*45.47*/routes/*45.53*/.PostControllerSTOF.upvote(post.id)),format.raw/*45.88*/("""  """),format.raw/*45.90*/(""""> upvote </a></button>
-                            <button><a href=""""),_display_(/*46.47*/routes/*46.53*/.PostControllerSTOF.downvote(post.id)),format.raw/*46.90*/(""""> downvote </a></button>
-                            <button>  answer </button>
+                            <button><a href=""""),_display_(/*45.47*/routes/*45.53*/.ContentController.upvote(post.id)),format.raw/*45.87*/("""  """),format.raw/*45.89*/(""""> upvote </a></button>
+                            <button><a href=""""),_display_(/*46.47*/routes/*46.53*/.ContentController.downvote(post.id)),format.raw/*46.89*/(""""> downvote </a></button>
+                            <button><a href=""""),_display_(/*47.47*/routes/*47.53*/.ContentController.postWithAnswers(post.id)),format.raw/*47.96*/("""">Expand</a> </button>
                         </ul>
                     """)))}),format.raw/*49.22*/("""
                 """),format.raw/*50.17*/("""</dl>
@@ -95,9 +95,9 @@ Seq[Any](_display_(/*4.2*/mainSTOF(welcome, session)/*4.28*/ {_display_(Seq[Any]
               /*
                   -- GENERATED --
                   SOURCE: app/views/indexSTOF.scala.html
-                  HASH: 51a2504617c4cca1afc46f0dfe5b7073685a1a88
-                  MATRIX: 432->1|785->29|920->93|960->106|994->132|1033->134|1064->140|1111->179|1161->192|1196->201|1278->257|1305->264|1365->298|1384->309|1441->346|1469->347|1547->398|1567->409|1626->447|1655->448|1770->536|1785->542|1841->577|2130->839|2164->857|2204->859|2249->876|2365->965|2378->969|2405->975|2498->1041|2511->1045|2537->1050|2566->1051|2660->1118|2673->1122|2699->1127|2793->1194|2806->1198|2832->1203|2928->1272|2941->1276|2968->1282|3064->1351|3077->1355|3117->1374|3230->1460|3299->1520|3339->1522|3392->1547|3470->1598|3485->1604|3541->1639|3571->1641|3668->1711|3683->1717|3741->1754|3904->1886|3949->1903|3999->1922|4040->1935|4081->1946|4117->1955|4160->1968
-                  LINES: 17->1|22->2|25->3|28->4|28->4|28->4|29->5|29->5|29->5|30->6|31->7|31->7|33->9|33->9|33->9|33->9|34->10|34->10|34->10|34->10|38->14|38->14|38->14|46->22|46->22|46->22|47->23|49->25|49->25|49->25|52->28|52->28|52->28|52->28|55->31|55->31|55->31|58->34|58->34|58->34|61->37|61->37|61->37|64->40|64->40|64->40|67->43|67->43|67->43|68->44|69->45|69->45|69->45|69->45|70->46|70->46|70->46|73->49|74->50|75->51|76->52|77->53|78->54|80->56
+                  HASH: 117afb4c093e2f2dad75ba5bce0f610834db08c4
+                  MATRIX: 432->1|785->29|920->93|960->106|994->132|1033->134|1064->140|1111->179|1161->192|1196->201|1278->257|1305->264|1365->298|1384->309|1440->345|1468->346|1546->397|1566->408|1624->445|1653->446|1768->534|1783->540|1838->574|2127->836|2161->854|2201->856|2246->873|2362->962|2375->966|2402->972|2495->1038|2508->1042|2534->1047|2563->1048|2657->1115|2670->1119|2696->1124|2790->1191|2803->1195|2829->1200|2925->1269|2938->1273|2965->1279|3061->1348|3074->1352|3114->1371|3227->1457|3296->1517|3336->1519|3389->1544|3467->1595|3482->1601|3537->1635|3567->1637|3664->1707|3679->1713|3736->1749|3835->1821|3850->1827|3914->1870|4019->1944|4064->1961|4114->1980|4155->1993|4196->2004|4232->2013|4275->2026
+                  LINES: 17->1|22->2|25->3|28->4|28->4|28->4|29->5|29->5|29->5|30->6|31->7|31->7|33->9|33->9|33->9|33->9|34->10|34->10|34->10|34->10|38->14|38->14|38->14|46->22|46->22|46->22|47->23|49->25|49->25|49->25|52->28|52->28|52->28|52->28|55->31|55->31|55->31|58->34|58->34|58->34|61->37|61->37|61->37|64->40|64->40|64->40|67->43|67->43|67->43|68->44|69->45|69->45|69->45|69->45|70->46|70->46|70->46|71->47|71->47|71->47|73->49|74->50|75->51|76->52|77->53|78->54|80->56
                   -- GENERATED --
               */
           

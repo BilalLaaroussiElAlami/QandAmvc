@@ -1,0 +1,65 @@
+@import models.Content.Post
+@import models.Content.Answer
+@(welcome: String, post: Post, answers: Seq[Answer])(implicit session: Session)
+@import b3._
+@mainSTOF(welcome, session) {
+    @defining(play.core.PlayVersion.current) { version =>
+        <div id="content" class="wrapper doc">
+            <h1>@welcome</h1>
+
+            <dl class="dl-horizontal">
+                <dt>title:</dt>
+                <dd>@post.title<dd>
+
+                <dt>text:</dt>
+                <dd>@post.text </dd>
+
+                <dt>code:</dt>
+                <dd>@post.code</dd>
+
+                <dt>date:</dt>
+                <dd>@post.date</dd>
+
+                <dt>votes: </dt>
+                <dd>@post.votes</dd>
+
+                <dt>Tags: </dt>
+                <dd> @post.tags.mkString(",")</dd>
+
+                    <!-- only loged in users can vote -->
+                @if(session.get(models.Global.SESSION_USERNAME_KEY).nonEmpty) {
+                    <ul>
+                        <button><a href="@routes.ContentController.upvote(post.id)  "> upvote </a></button>
+                        <button><a href="@routes.ContentController.downvote(post.id)"> downvote </a></button>
+                        <button><a href="@routes.ContentController.newAnswer(post.id)"> answer</a>  </button>
+                    </ul>
+                }
+            </dl>
+
+            <dl>
+            @for(answer <- answers) {
+                <dl class="dl-horizontal" >
+                    <dt>text:</dt>
+                    <dd>@answer.text </dd>
+
+                    <dt>code:</dt>
+                    <dd>@answer.code</dd>
+
+                    <dt>data:</dt>
+                    <dd>@answer.date</dd>
+
+                    <dt>votes: </dt>
+                    <dd>@answer.votes</dd>
+                        <!-- only loged in users can vote -->
+                    @if(session.get(models.Global.SESSION_USERNAME_KEY).nonEmpty) {
+                        <ul>
+                            <button><a href="@routes.ContentController.upvoteAnswer(answer.id)  "> upvote answer </a></button>
+                            <button><a href="@routes.ContentController.downvoteAnswer(answer.id)"> downvote answer </a></button>
+                        </ul>
+                    }
+                </dl>
+            }
+            </dl>
+    }
+</div>
+}

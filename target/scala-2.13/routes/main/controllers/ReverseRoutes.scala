@@ -39,6 +39,87 @@ package controllers {
   
   }
 
+  // @LINE:27
+  class ReverseContentController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:35
+    def downvoteAnswer(id:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/downvoteAnswer" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
+    }
+  
+    // @LINE:39
+    def saveAnswer(postId:Int): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "frontpage/saveAnswer" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("postId", postId)))))
+    }
+  
+    // @LINE:31
+    def savePost(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "frontpage")
+    }
+  
+    // @LINE:37
+    def newAnswer(postId:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/newAnswer" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("postId", postId)))))
+    }
+  
+    // @LINE:28
+    def sortByVotes: Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/sortedByVotes")
+    }
+  
+    // @LINE:38
+    def postWithAnswers(postid:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "postsWithAnswers" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("postid", postid)))))
+    }
+  
+    // @LINE:33
+    def downvote(id:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/downvote" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
+    }
+  
+    // @LINE:30
+    def newPost(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/new")
+    }
+  
+    // @LINE:29
+    def searchByTag(tag:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/searchByTag" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("tag", tag)))))
+    }
+  
+    // @LINE:34
+    def upvoteAnswer(id:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/upvoteAnswer" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
+    }
+  
+    // @LINE:27
+    def sortByDate: Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/sortedByDate")
+    }
+  
+    // @LINE:32
+    def upvote(id:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/upvote" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
+    }
+  
+  }
+
   // @LINE:13
   class ReverseUserController(_prefix: => String) {
     def _defaultPrefix: String = {
@@ -71,57 +152,6 @@ package controllers {
     def index: Call = {
       
       Call("GET", _prefix)
-    }
-  
-  }
-
-  // @LINE:27
-  class ReversePostControllerSTOF(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:28
-    def sortByVotes: Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "frontpage/sortedByVotes")
-    }
-  
-    // @LINE:33
-    def downvote(id:Int): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "frontpage/downvote" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
-    }
-  
-    // @LINE:31
-    def save(): Call = {
-      
-      Call("POST", _prefix + { _defaultPrefix } + "frontpage")
-    }
-  
-    // @LINE:29
-    def searchByTag(tag:String): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "frontpage/searchByTag" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("tag", tag)))))
-    }
-  
-    // @LINE:27
-    def sortByDate: Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "frontpage/sortedByDate")
-    }
-  
-    // @LINE:32
-    def upvote(id:Int): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "frontpage/upvote" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
-    }
-  
-    // @LINE:30
-    def newProduct(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "frontpage/new")
     }
   
   }

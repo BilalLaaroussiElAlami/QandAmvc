@@ -1,6 +1,6 @@
 package controllers
 
-import models.Content.ContentDao
+import models.Content.PostDao
 
 import javax.inject._
 import play.api.mvc._
@@ -12,7 +12,7 @@ import play.api.mvc._
 
 // Maybe rename to PostsPageController?
 @Singleton
-class HomeControllerSTOF @Inject()(cc: ControllerComponents, postDao: ContentDao) extends AbstractController(cc) {
+class HomeControllerSTOF @Inject()(cc: ControllerComponents, postDao: PostDao) extends AbstractController(cc) {
 
   /**
    * Create an Action to render an HTML page.

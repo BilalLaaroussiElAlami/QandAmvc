@@ -49,6 +49,136 @@ package controllers.javascript {
   
   }
 
+  // @LINE:27
+  class ReverseContentController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:35
+    def downvoteAnswer: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.downvoteAnswer",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/downvoteAnswer" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+    // @LINE:39
+    def saveAnswer: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.saveAnswer",
+      """
+        function(postId0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/saveAnswer" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("postId", postId0)])})
+        }
+      """
+    )
+  
+    // @LINE:31
+    def savePost: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.savePost",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage"})
+        }
+      """
+    )
+  
+    // @LINE:37
+    def newAnswer: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.newAnswer",
+      """
+        function(postId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/newAnswer" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("postId", postId0)])})
+        }
+      """
+    )
+  
+    // @LINE:28
+    def sortByVotes: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.sortByVotes",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/sortedByVotes"})
+        }
+      """
+    )
+  
+    // @LINE:38
+    def postWithAnswers: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.postWithAnswers",
+      """
+        function(postid0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "postsWithAnswers" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("postid", postid0)])})
+        }
+      """
+    )
+  
+    // @LINE:33
+    def downvote: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.downvote",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/downvote" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+    // @LINE:30
+    def newPost: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.newPost",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/new"})
+        }
+      """
+    )
+  
+    // @LINE:29
+    def searchByTag: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.searchByTag",
+      """
+        function(tag0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/searchByTag" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("tag", tag0)])})
+        }
+      """
+    )
+  
+    // @LINE:34
+    def upvoteAnswer: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.upvoteAnswer",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/upvoteAnswer" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+    // @LINE:27
+    def sortByDate: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.sortByDate",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/sortedByDate"})
+        }
+      """
+    )
+  
+    // @LINE:32
+    def upvote: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.upvote",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/upvote" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+  }
+
   // @LINE:13
   class ReverseUserController(_prefix: => String) {
 
@@ -93,86 +223,6 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:27
-  class ReversePostControllerSTOF(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:28
-    def sortByVotes: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PostControllerSTOF.sortByVotes",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/sortedByVotes"})
-        }
-      """
-    )
-  
-    // @LINE:33
-    def downvote: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PostControllerSTOF.downvote",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/downvote" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
-        }
-      """
-    )
-  
-    // @LINE:31
-    def save: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PostControllerSTOF.save",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage"})
-        }
-      """
-    )
-  
-    // @LINE:29
-    def searchByTag: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PostControllerSTOF.searchByTag",
-      """
-        function(tag0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/searchByTag" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("tag", tag0)])})
-        }
-      """
-    )
-  
-    // @LINE:27
-    def sortByDate: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PostControllerSTOF.sortByDate",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/sortedByDate"})
-        }
-      """
-    )
-  
-    // @LINE:32
-    def upvote: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PostControllerSTOF.upvote",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/upvote" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
-        }
-      """
-    )
-  
-    // @LINE:30
-    def newProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PostControllerSTOF.newProduct",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/new"})
         }
       """
     )
