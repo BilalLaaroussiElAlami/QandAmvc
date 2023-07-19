@@ -1,4 +1,4 @@
-package models
+package models.User
 
 import javax.inject.Inject
 

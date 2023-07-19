@@ -1,7 +1,9 @@
 package controllers
 
+import models.User.{User, UserDao}
+
 import javax.inject.Inject
-import models.{Global, User, UserDao}
+import models.Global
 import play.api.data.Forms._
 import play.api.data._
 import play.api.mvc._

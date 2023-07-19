@@ -1,15 +1,16 @@
 package controllers
 
-import models.{PostDaoSTOF, PostSTOF}
+import models.Content.{ContentDao, Post}
 import play.api.data.{Form, Mapping}
 import play.api.data.Forms.{default, list, longNumber, mapping, nonEmptyText, number, tuple}
 import play.api.i18n.MessagesProvider
 import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents, Flash, Request}
-
 import javax.inject.{Inject, Singleton}
+import play.api.data.Form
+import play.api.data.Forms._
 
 @Singleton
-class PostControllerSTOF  @Inject()(cc: ControllerComponents, postDao: PostDaoSTOF) extends AbstractController(cc) with play.api.i18n.I18nSupport {
+class PostControllerSTOF  @Inject()(cc: ControllerComponents, postDao: ContentDao) extends AbstractController(cc) with play.api.i18n.I18nSupport {
 
   def upvote(id:Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     println("called upvote")
@@ -38,22 +39,18 @@ class PostControllerSTOF  @Inject()(cc: ControllerComponents, postDao: PostDaoST
     Ok(views.html.indexSTOF("POSTS", postDao.sortPostsByUpvotes()))
   }
 
-  import play.api.data.Form
-  import play.api.data.Forms._
 
-      //TODO verify user input
-    private val postForm: Form[PostSTOF] =
-      Form(
-        mapping(
-          "title" -> nonEmptyText,
-          "text" -> nonEmptyText,
-          "code" -> nonEmptyText,
-          "date" -> default(number, 2023),
-          "votes" -> default(number,0),
-          "tags" ->  nonEmptyText.transform(f,g).verifying("maximum 3 tags", l => l.length < 4)
-        )
-        (PostSTOF.apply)(PostSTOF.unapply)
+  private val postForm: Form[Post] =
+    Form(
+      mapping(
+        "title" -> nonEmptyText,
+        "text" -> nonEmptyText,
+        "code" -> nonEmptyText,
+        "date" -> default(number, 2023),
+        "votes" -> default(number,0),
+        "tags" ->  nonEmptyText.transform(f,g).verifying("maximum 3 tags", l => l.length < 4)
       )
+      (Post.apply)(Post.unapply))
 
   def f(s:String):List[String] = s.split(",").toList
   def g(l:List[String]):String = l.mkString(",")

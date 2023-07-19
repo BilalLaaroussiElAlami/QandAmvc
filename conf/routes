@@ -23,11 +23,12 @@ GET /contacts controllers.ContactPageController.listContacts
 
 # ROUTES CONCERNING THE PROJCET:
 #TODO change frontpage with posts
-GET /frontpage                      controllers.HomeControllerSTOF.index
-GET /frontpage/sortedByDate         controllers.PostControllerSTOF.sortByDate
-GET /frontpage/sortedByVotes        controllers.PostControllerSTOF.sortByVotes
-GET /frontpage/searchByTag          controllers.PostControllerSTOF.searchByTag(tag:String)
-GET /frontpage/new                  controllers.PostControllerSTOF.newProduct()
+GET  /frontpage                      controllers.HomeControllerSTOF.index
+GET  /frontpage/sortedByDate         controllers.PostControllerSTOF.sortByDate
+GET  /frontpage/sortedByVotes        controllers.PostControllerSTOF.sortByVotes
+GET  /frontpage/searchByTag          controllers.PostControllerSTOF.searchByTag(tag:String)
+GET  /frontpage/new                  controllers.PostControllerSTOF.newProduct()
 POST /frontpage                     controllers.PostControllerSTOF.save()
-GET /frontpage/upvote               controllers.PostControllerSTOF.upvote(id:Int)
-GET /frontpage/downvote             controllers.PostControllerSTOF.downvote(id:Int)
+GET  /frontpage/upvote               controllers.PostControllerSTOF.upvote(id:Int)
+GET  /frontpage/downvote             controllers.PostControllerSTOF.downvote(id:Int)
+

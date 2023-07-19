@@ -1,4 +1,5 @@
-@(welcome: String, posts: Seq[PostSTOF])(implicit session: Session)
+@import models.Content.Post
+@(welcome: String, posts: Seq[Post])(implicit session: Session)
 @import b3._
 @mainSTOF(welcome, session) {
     @defining(play.core.PlayVersion.current) { version =>
@@ -40,8 +41,11 @@
 
                     <!-- only loged in users can vote -->
                     @if(session.get(models.Global.SESSION_USERNAME_KEY).nonEmpty) {
-                        <li><a href="@routes.PostControllerSTOF.upvote(post.id)  "> upvote </a></li>
-                        <li><a href="@routes.PostControllerSTOF.downvote(post.id)"> downvote </a></li>
+                        <ul>
+                            <button><a href="@routes.PostControllerSTOF.upvote(post.id)  "> upvote </a></button>
+                            <button><a href="@routes.PostControllerSTOF.downvote(post.id)"> downvote </a></button>
+                            <button>  answer </button>
+                        </ul>
                     }
                 </dl>
             }

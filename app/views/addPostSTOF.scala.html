@@ -1,4 +1,5 @@
-@(postForm: Form[PostSTOF])(implicit session: Session, request: RequestHeader, messagesProvider: MessagesProvider, flash: Flash)
+@import models.Content.Post
+@(postForm: Form[Post])(implicit session: Session, request: RequestHeader, messagesProvider: MessagesProvider, flash: Flash)
 
 @import b3._
 @implicitFieldConstructor = @{ b3.vertical.fieldConstructor() }
