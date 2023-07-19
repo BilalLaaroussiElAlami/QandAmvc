@@ -11,6 +11,7 @@
     @b3.form(action =  helper.CSRF(routes.PostControllerSTOF.save())) {
         <fieldset>
             <legend>(new)</legend>
+            title: @b3.textarea(postForm("title"))
             text: @b3.textarea(postForm("text"))
             code: @b3.textarea(postForm("code"))
             tags: @b3.text(postForm("tags[]"))

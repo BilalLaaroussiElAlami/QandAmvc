@@ -7,14 +7,14 @@ import scala.::
 class PostDaoSTOF @Inject()() {
 
   var posts: Seq[PostSTOF] = Seq(
-    PostSTOF("What does the * stand for?", "float *x", 2023, 0, List("C", "Pointer")),
-    PostSTOF("Why do i get a stackoverflow error?", "def main(): \n main()", 2015, 10, List("error", "python")),
-    PostSTOF("What is a macro?", "#define SIZE 30", 2019, 5, List("macros", "C")),
-    PostSTOF("What is an if", "if true ok", 2017, 2, List("beginner")),
-    PostSTOF("What is an if", "if true ok", 2017, 2, List("beginner")),
-    PostSTOF("What is an if", "if true ok", 2017, 2, List("beginner")),
-    PostSTOF("What is an if", "if true ok", 2017, 2, List("beginner")),
-    PostSTOF("What is an if", "if true ok", 2017, 2, List("beginner")))
+    PostSTOF("title",  "What does the * stand for?", "float *x", 2023, 0, List("C", "Pointer")),
+    PostSTOF("title","Why do i get a stackoverflow error?", "def main(): \n main()", 2015, 10, List("error", "python")),
+    PostSTOF("title","What is a macro?", "#define SIZE 30", 2019, 5, List("macros", "C")),
+    PostSTOF("title","What is an if", "if true ok", 2017, 2, List("beginner")),
+    PostSTOF("title","What is an if", "if true ok", 2017, 2, List("beginner")),
+    PostSTOF("title","What is an if", "if true ok", 2017, 2, List("beginner")),
+    PostSTOF("title","What is an if", "if true ok", 2017, 2, List("beginner")),
+    PostSTOF("title","What is an if", "if true ok", 2017, 2, List("beginner")))
 
   def add(p:PostSTOF) = {
     posts = posts :+ p

@@ -9,17 +9,20 @@
             <btn><a href= @controllers.routes.PostControllerSTOF.sortByVotes >sort by votes</a></btn>
 
 
-
             <h4> Search</h4>
-                <form action = @routes.PostControllerSTOF.searchByTag("fzefez")" method="get">
+                <form action = @routes.PostControllerSTOF.searchByTag("")" method="get">
                 <input type="text" name="tag" placeholder="Enter your search query">
                 <input type="submit" value="Search">
             </form>
 
 
+            <!-- TODO change to seperate post view? -->
             <dl>
             @for(post <- posts) {
                 <dl class="dl-horizontal" >
+                    <dt>title:</dt>
+                    <dd>@post.title<dd>
+
                     <dt>text:</dt>
                     <dd>@post.text </dd>
 

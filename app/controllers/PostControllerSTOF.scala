@@ -34,6 +34,7 @@ class PostControllerSTOF  @Inject()(cc: ControllerComponents, postDao: PostDaoST
   private val postForm: Form[PostSTOF] =
     Form(
       mapping(
+        "title" -> nonEmptyText,
         "text" -> nonEmptyText,
         "code" -> nonEmptyText,
         "date" -> default(number, 2023),
