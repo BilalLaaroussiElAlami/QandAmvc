@@ -11,6 +11,17 @@ import javax.inject.{Inject, Singleton}
 @Singleton
 class PostControllerSTOF  @Inject()(cc: ControllerComponents, postDao: PostDaoSTOF) extends AbstractController(cc) with play.api.i18n.I18nSupport {
 
+  def upvote(id:Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    println("called upvote")
+    postDao.upvote(id)
+    Ok(views.html.indexSTOF("POSTS", postDao.posts))
+  }
+  def downvote(id:Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    println("called downvote")
+    postDao.downvote(id)
+    Ok(views.html.indexSTOF("POSTS", postDao.posts))
+  }
+
   def sortByDate(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     println("called sortbydate")
     Ok(views.html.indexSTOF("POSTS", postDao.sortPostsByDate()))

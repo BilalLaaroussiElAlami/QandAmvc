@@ -117,6 +117,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:33
+    def downvote: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.PostControllerSTOF.downvote",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/downvote" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
     // @LINE:31
     def save: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PostControllerSTOF.save",
@@ -143,6 +153,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/sortedByDate"})
+        }
+      """
+    )
+  
+    // @LINE:32
+    def upvote: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.PostControllerSTOF.upvote",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "frontpage/upvote" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
         }
       """
     )

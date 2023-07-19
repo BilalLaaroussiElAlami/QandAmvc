@@ -38,7 +38,11 @@
                     <dt>Tags: </dt>
                     <dd> @post.tags.mkString(",")</dd>
 
-                    <btn><a >more details</a></btn>
+                    <!-- only loged in users can vote -->
+                    @if(session.get(models.Global.SESSION_USERNAME_KEY).nonEmpty) {
+                        <li><a href="@routes.PostControllerSTOF.upvote(post.id)  "> upvote </a></li>
+                        <li><a href="@routes.PostControllerSTOF.downvote(post.id)"> downvote </a></li>
+                    }
                 </dl>
             }
             </dl>

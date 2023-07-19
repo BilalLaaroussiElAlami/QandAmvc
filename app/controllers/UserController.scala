@@ -20,7 +20,7 @@ class UserController @Inject()(
                 .verifying("Too many characters", s => lengthIsLessThanNCharacters(s, 20)),
             "password" -> nonEmptyText
                 .verifying("Too few characters",  s => lengthIsGreaterThanNCharacters(s, 2))
-                .verifying("Too few characters", s => lengthIsLessThanNCharacters(s, 30)),
+                .verifying("Too many characters", s => lengthIsLessThanNCharacters(s, 30)),
         )(User.apply)(User.unapply)
     )
 

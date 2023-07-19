@@ -1,5 +1,8 @@
 package models
 
+import play.api.libs.json.JsError
+import play.api.libs.json.JsResult.Exception
+
 import javax.inject.Inject
 import scala.::
 
@@ -16,6 +19,20 @@ class PostDaoSTOF @Inject()() {
     PostSTOF("title","What is an if", "if true ok", 2017, 2, List("beginner")),
     PostSTOF("title","What is an if", "if true ok", 2017, 2, List("beginner")))
 
+
+  def findbyId(idd:Int): PostSTOF = {
+    posts.find(p => p.id == idd).getOrElse(throw Exception(JsError("couldn't find post by id")))
+  }
+  def upvote(id: Int) = {
+    val index = posts.indexWhere(p => p.id == id)
+    val post = posts(index)
+    post.upvote()
+  }
+  def downvote(id: Int) = {
+    val index = posts.indexWhere(p => p.id == id)
+    val post = posts(index)
+    post.downvote()
+  }
   def add(p:PostSTOF) = {
     posts = posts :+ p
   }

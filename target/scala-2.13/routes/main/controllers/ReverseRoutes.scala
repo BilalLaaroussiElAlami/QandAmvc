@@ -88,6 +88,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "frontpage/sortedByVotes")
     }
   
+    // @LINE:33
+    def downvote(id:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/downvote" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
+    }
+  
     // @LINE:31
     def save(): Call = {
       
@@ -104,6 +110,12 @@ package controllers {
     def sortByDate: Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "frontpage/sortedByDate")
+    }
+  
+    // @LINE:32
+    def upvote(id:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "frontpage/upvote" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
     }
   
     // @LINE:30

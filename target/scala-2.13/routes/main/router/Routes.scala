@@ -75,6 +75,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/searchByTag""", """controllers.PostControllerSTOF.searchByTag(tag:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/new""", """controllers.PostControllerSTOF.newProduct()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage""", """controllers.PostControllerSTOF.save()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/upvote""", """controllers.PostControllerSTOF.upvote(id:Int)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/downvote""", """controllers.PostControllerSTOF.downvote(id:Int)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -317,6 +319,42 @@ TODO change frontpage with posts""",
     )
   )
 
+  // @LINE:32
+  private[this] lazy val controllers_PostControllerSTOF_upvote13_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/upvote")))
+  )
+  private[this] lazy val controllers_PostControllerSTOF_upvote13_invoker = createInvoker(
+    PostControllerSTOF_4.upvote(fakeValue[Int]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PostControllerSTOF",
+      "upvote",
+      Seq(classOf[Int]),
+      "GET",
+      this.prefix + """frontpage/upvote""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:33
+  private[this] lazy val controllers_PostControllerSTOF_downvote14_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/downvote")))
+  )
+  private[this] lazy val controllers_PostControllerSTOF_downvote14_invoker = createInvoker(
+    PostControllerSTOF_4.downvote(fakeValue[Int]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PostControllerSTOF",
+      "downvote",
+      Seq(classOf[Int]),
+      "GET",
+      this.prefix + """frontpage/downvote""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -396,6 +434,18 @@ TODO change frontpage with posts""",
     case controllers_PostControllerSTOF_save12_route(params@_) =>
       call { 
         controllers_PostControllerSTOF_save12_invoker.call(PostControllerSTOF_4.save())
+      }
+  
+    // @LINE:32
+    case controllers_PostControllerSTOF_upvote13_route(params@_) =>
+      call(params.fromQuery[Int]("id", None)) { (id) =>
+        controllers_PostControllerSTOF_upvote13_invoker.call(PostControllerSTOF_4.upvote(id))
+      }
+  
+    // @LINE:33
+    case controllers_PostControllerSTOF_downvote14_route(params@_) =>
+      call(params.fromQuery[Int]("id", None)) { (id) =>
+        controllers_PostControllerSTOF_downvote14_invoker.call(PostControllerSTOF_4.downvote(id))
       }
   }
 }
