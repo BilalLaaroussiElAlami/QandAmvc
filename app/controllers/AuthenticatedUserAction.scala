@@ -22,7 +22,7 @@ class AuthenticatedUserAction @Inject() (parser: BodyParsers.Default)(implicit e
         val maybeUsername = request.session.get(models.Global.SESSION_USERNAME_KEY)
         maybeUsername match {
             case None =>
-                Future.successful(Redirect(routes.HomeController.index))
+                Future.successful(Redirect(routes.HomeControllerSTOF.index))
             case Some(_) =>
                 val res: Future[Result] = block(request)
                 res

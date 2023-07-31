@@ -13,48 +13,40 @@ import _root_.controllers.Assets.Asset
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:6
-  HomeController_7: controllers.HomeController,
+  HomeControllerSTOF_1: controllers.HomeControllerSTOF,
   // @LINE:10
-  Assets_5: controllers.Assets,
+  Assets_4: controllers.Assets,
   // @LINE:13
-  UserController_4: controllers.UserController,
+  UserController_3: controllers.UserController,
   // @LINE:17
   AuthenticatedUserController_0: controllers.AuthenticatedUserController,
   // @LINE:18
   LandingPageController_2: controllers.LandingPageController,
-  // @LINE:21
-  ContactPageController_3: controllers.ContactPageController,
-  // @LINE:26
-  HomeControllerSTOF_1: controllers.HomeControllerSTOF,
-  // @LINE:27
-  ContentController_6: controllers.ContentController,
+  // @LINE:25
+  ContentController_5: controllers.ContentController,
   val prefix: String
 ) extends GeneratedRouter {
 
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:6
-    HomeController_7: controllers.HomeController,
+    HomeControllerSTOF_1: controllers.HomeControllerSTOF,
     // @LINE:10
-    Assets_5: controllers.Assets,
+    Assets_4: controllers.Assets,
     // @LINE:13
-    UserController_4: controllers.UserController,
+    UserController_3: controllers.UserController,
     // @LINE:17
     AuthenticatedUserController_0: controllers.AuthenticatedUserController,
     // @LINE:18
     LandingPageController_2: controllers.LandingPageController,
-    // @LINE:21
-    ContactPageController_3: controllers.ContactPageController,
-    // @LINE:26
-    HomeControllerSTOF_1: controllers.HomeControllerSTOF,
-    // @LINE:27
-    ContentController_6: controllers.ContentController
-  ) = this(errorHandler, HomeController_7, Assets_5, UserController_4, AuthenticatedUserController_0, LandingPageController_2, ContactPageController_3, HomeControllerSTOF_1, ContentController_6, "/")
+    // @LINE:25
+    ContentController_5: controllers.ContentController
+  ) = this(errorHandler, HomeControllerSTOF_1, Assets_4, UserController_3, AuthenticatedUserController_0, LandingPageController_2, ContentController_5, "/")
 
   def withPrefix(addPrefix: String): Routes = {
     val prefix = play.api.routing.Router.concatPrefix(addPrefix, this.prefix)
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_7, Assets_5, UserController_4, AuthenticatedUserController_0, LandingPageController_2, ContactPageController_3, HomeControllerSTOF_1, ContentController_6, prefix)
+    new Routes(errorHandler, HomeControllerSTOF_1, Assets_4, UserController_3, AuthenticatedUserController_0, LandingPageController_2, ContentController_5, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -62,26 +54,25 @@ class Routes(
   }
 
   def documentation = List(
-    ("""GET""", this.prefix, """controllers.HomeController.index"""),
+    ("""GET""", this.prefix, """controllers.HomeControllerSTOF.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.UserController.showLoginForm"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """doLogin""", """controllers.UserController.processLoginAttempt"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.AuthenticatedUserController.logout"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """landingPage""", """controllers.LandingPageController.showLandingPage"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """contacts""", """controllers.ContactPageController.listContacts"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage""", """controllers.HomeControllerSTOF.index"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/sortedByDate""", """controllers.ContentController.sortByDate"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/sortedByVotes""", """controllers.ContentController.sortByVotes"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/searchByTag""", """controllers.ContentController.searchByTag(tag:String)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/new""", """controllers.ContentController.newPost()"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage""", """controllers.ContentController.savePost()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/upvote""", """controllers.ContentController.upvote(id:Int)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/downvote""", """controllers.ContentController.downvote(id:Int)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/upvoteAnswer""", """controllers.ContentController.upvoteAnswer(id:Int)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/downvoteAnswer""", """controllers.ContentController.downvoteAnswer(id:Int)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/newAnswer""", """controllers.ContentController.newAnswer(postId:Int)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts""", """controllers.HomeControllerSTOF.index"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/sortedByDate""", """controllers.ContentController.sortByDate"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/sortedByVotes""", """controllers.ContentController.sortByVotes"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/searchByTag""", """controllers.ContentController.searchByTag(tag:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/new""", """controllers.ContentController.newPost()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts""", """controllers.ContentController.savePost()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/upvote""", """controllers.ContentController.upvote(id:Int)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/downvote""", """controllers.ContentController.downvote(id:Int)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/upvoteAnswer""", """controllers.ContentController.upvoteAnswer(id:Int)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/downvoteAnswer""", """controllers.ContentController.downvoteAnswer(id:Int)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/newAnswer""", """controllers.ContentController.newAnswer(postId:Int)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """postsWithAnswers""", """controllers.ContentController.postWithAnswers(postid:Int)"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """frontpage/saveAnswer""", """controllers.ContentController.saveAnswer(postId:Int)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/saveAnswer""", """controllers.ContentController.saveAnswer(postId:Int)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -90,14 +81,14 @@ class Routes(
 
 
   // @LINE:6
-  private[this] lazy val controllers_HomeController_index0_route = Route("GET",
+  private[this] lazy val controllers_HomeControllerSTOF_index0_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix)))
   )
-  private[this] lazy val controllers_HomeController_index0_invoker = createInvoker(
-    HomeController_7.index,
+  private[this] lazy val controllers_HomeControllerSTOF_index0_invoker = createInvoker(
+    HomeControllerSTOF_1.index,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.HomeController",
+      "controllers.HomeControllerSTOF",
       "index",
       Nil,
       "GET",
@@ -112,7 +103,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
   private[this] lazy val controllers_Assets_versioned1_invoker = createInvoker(
-    Assets_5.versioned(fakeValue[String], fakeValue[Asset]),
+    Assets_4.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -130,7 +121,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
   )
   private[this] lazy val controllers_UserController_showLoginForm2_invoker = createInvoker(
-    UserController_4.showLoginForm,
+    UserController_3.showLoginForm,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -148,7 +139,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("doLogin")))
   )
   private[this] lazy val controllers_UserController_processLoginAttempt3_invoker = createInvoker(
-    UserController_4.processLoginAttempt,
+    UserController_3.processLoginAttempt,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -197,29 +188,11 @@ class Routes(
     )
   )
 
-  // @LINE:21
-  private[this] lazy val controllers_ContactPageController_listContacts6_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("contacts")))
+  // @LINE:24
+  private[this] lazy val controllers_HomeControllerSTOF_index6_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts")))
   )
-  private[this] lazy val controllers_ContactPageController_listContacts6_invoker = createInvoker(
-    ContactPageController_3.listContacts,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.ContactPageController",
-      "listContacts",
-      Nil,
-      "GET",
-      this.prefix + """contacts""",
-      """ show contacts""",
-      Seq()
-    )
-  )
-
-  // @LINE:26
-  private[this] lazy val controllers_HomeControllerSTOF_index7_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage")))
-  )
-  private[this] lazy val controllers_HomeControllerSTOF_index7_invoker = createInvoker(
+  private[this] lazy val controllers_HomeControllerSTOF_index6_invoker = createInvoker(
     HomeControllerSTOF_1.index,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -227,199 +200,199 @@ class Routes(
       "index",
       Nil,
       "GET",
-      this.prefix + """frontpage""",
+      this.prefix + """posts""",
       """ ROUTES CONCERNING THE PROJCET:
 TODO change frontpage with posts""",
       Seq()
     )
   )
 
-  // @LINE:27
-  private[this] lazy val controllers_ContentController_sortByDate8_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/sortedByDate")))
+  // @LINE:25
+  private[this] lazy val controllers_ContentController_sortByDate7_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/sortedByDate")))
   )
-  private[this] lazy val controllers_ContentController_sortByDate8_invoker = createInvoker(
-    ContentController_6.sortByDate,
+  private[this] lazy val controllers_ContentController_sortByDate7_invoker = createInvoker(
+    ContentController_5.sortByDate,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
       "sortByDate",
       Nil,
       "GET",
-      this.prefix + """frontpage/sortedByDate""",
+      this.prefix + """posts/sortedByDate""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:28
-  private[this] lazy val controllers_ContentController_sortByVotes9_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/sortedByVotes")))
+  // @LINE:26
+  private[this] lazy val controllers_ContentController_sortByVotes8_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/sortedByVotes")))
   )
-  private[this] lazy val controllers_ContentController_sortByVotes9_invoker = createInvoker(
-    ContentController_6.sortByVotes,
+  private[this] lazy val controllers_ContentController_sortByVotes8_invoker = createInvoker(
+    ContentController_5.sortByVotes,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
       "sortByVotes",
       Nil,
       "GET",
-      this.prefix + """frontpage/sortedByVotes""",
+      this.prefix + """posts/sortedByVotes""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:29
-  private[this] lazy val controllers_ContentController_searchByTag10_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/searchByTag")))
+  // @LINE:27
+  private[this] lazy val controllers_ContentController_searchByTag9_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/searchByTag")))
   )
-  private[this] lazy val controllers_ContentController_searchByTag10_invoker = createInvoker(
-    ContentController_6.searchByTag(fakeValue[String]),
+  private[this] lazy val controllers_ContentController_searchByTag9_invoker = createInvoker(
+    ContentController_5.searchByTag(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
       "searchByTag",
       Seq(classOf[String]),
       "GET",
-      this.prefix + """frontpage/searchByTag""",
+      this.prefix + """posts/searchByTag""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:30
-  private[this] lazy val controllers_ContentController_newPost11_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/new")))
+  // @LINE:28
+  private[this] lazy val controllers_ContentController_newPost10_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/new")))
   )
-  private[this] lazy val controllers_ContentController_newPost11_invoker = createInvoker(
-    ContentController_6.newPost(),
+  private[this] lazy val controllers_ContentController_newPost10_invoker = createInvoker(
+    ContentController_5.newPost(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
       "newPost",
       Nil,
       "GET",
-      this.prefix + """frontpage/new""",
+      this.prefix + """posts/new""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:31
-  private[this] lazy val controllers_ContentController_savePost12_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage")))
+  // @LINE:29
+  private[this] lazy val controllers_ContentController_savePost11_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts")))
   )
-  private[this] lazy val controllers_ContentController_savePost12_invoker = createInvoker(
-    ContentController_6.savePost(),
+  private[this] lazy val controllers_ContentController_savePost11_invoker = createInvoker(
+    ContentController_5.savePost(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
       "savePost",
       Nil,
       "POST",
-      this.prefix + """frontpage""",
+      this.prefix + """posts""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:32
-  private[this] lazy val controllers_ContentController_upvote13_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/upvote")))
+  // @LINE:30
+  private[this] lazy val controllers_ContentController_upvote12_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/upvote")))
   )
-  private[this] lazy val controllers_ContentController_upvote13_invoker = createInvoker(
-    ContentController_6.upvote(fakeValue[Int]),
+  private[this] lazy val controllers_ContentController_upvote12_invoker = createInvoker(
+    ContentController_5.upvote(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
       "upvote",
       Seq(classOf[Int]),
       "GET",
-      this.prefix + """frontpage/upvote""",
+      this.prefix + """posts/upvote""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:33
-  private[this] lazy val controllers_ContentController_downvote14_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/downvote")))
+  // @LINE:31
+  private[this] lazy val controllers_ContentController_downvote13_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/downvote")))
   )
-  private[this] lazy val controllers_ContentController_downvote14_invoker = createInvoker(
-    ContentController_6.downvote(fakeValue[Int]),
+  private[this] lazy val controllers_ContentController_downvote13_invoker = createInvoker(
+    ContentController_5.downvote(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
       "downvote",
       Seq(classOf[Int]),
       "GET",
-      this.prefix + """frontpage/downvote""",
+      this.prefix + """posts/downvote""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:34
-  private[this] lazy val controllers_ContentController_upvoteAnswer15_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/upvoteAnswer")))
+  // @LINE:32
+  private[this] lazy val controllers_ContentController_upvoteAnswer14_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/upvoteAnswer")))
   )
-  private[this] lazy val controllers_ContentController_upvoteAnswer15_invoker = createInvoker(
-    ContentController_6.upvoteAnswer(fakeValue[Int]),
+  private[this] lazy val controllers_ContentController_upvoteAnswer14_invoker = createInvoker(
+    ContentController_5.upvoteAnswer(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
       "upvoteAnswer",
       Seq(classOf[Int]),
       "GET",
-      this.prefix + """frontpage/upvoteAnswer""",
+      this.prefix + """posts/upvoteAnswer""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:35
-  private[this] lazy val controllers_ContentController_downvoteAnswer16_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/downvoteAnswer")))
+  // @LINE:33
+  private[this] lazy val controllers_ContentController_downvoteAnswer15_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/downvoteAnswer")))
   )
-  private[this] lazy val controllers_ContentController_downvoteAnswer16_invoker = createInvoker(
-    ContentController_6.downvoteAnswer(fakeValue[Int]),
+  private[this] lazy val controllers_ContentController_downvoteAnswer15_invoker = createInvoker(
+    ContentController_5.downvoteAnswer(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
       "downvoteAnswer",
       Seq(classOf[Int]),
       "GET",
-      this.prefix + """frontpage/downvoteAnswer""",
+      this.prefix + """posts/downvoteAnswer""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:37
-  private[this] lazy val controllers_ContentController_newAnswer17_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/newAnswer")))
+  // @LINE:35
+  private[this] lazy val controllers_ContentController_newAnswer16_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/newAnswer")))
   )
-  private[this] lazy val controllers_ContentController_newAnswer17_invoker = createInvoker(
-    ContentController_6.newAnswer(fakeValue[Int]),
+  private[this] lazy val controllers_ContentController_newAnswer16_invoker = createInvoker(
+    ContentController_5.newAnswer(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
       "newAnswer",
       Seq(classOf[Int]),
       "GET",
-      this.prefix + """frontpage/newAnswer""",
+      this.prefix + """posts/newAnswer""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:38
-  private[this] lazy val controllers_ContentController_postWithAnswers18_route = Route("GET",
+  // @LINE:36
+  private[this] lazy val controllers_ContentController_postWithAnswers17_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("postsWithAnswers")))
   )
-  private[this] lazy val controllers_ContentController_postWithAnswers18_invoker = createInvoker(
-    ContentController_6.postWithAnswers(fakeValue[Int]),
+  private[this] lazy val controllers_ContentController_postWithAnswers17_invoker = createInvoker(
+    ContentController_5.postWithAnswers(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
@@ -432,19 +405,19 @@ TODO change frontpage with posts""",
     )
   )
 
-  // @LINE:39
-  private[this] lazy val controllers_ContentController_saveAnswer19_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("frontpage/saveAnswer")))
+  // @LINE:37
+  private[this] lazy val controllers_ContentController_saveAnswer18_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/saveAnswer")))
   )
-  private[this] lazy val controllers_ContentController_saveAnswer19_invoker = createInvoker(
-    ContentController_6.saveAnswer(fakeValue[Int]),
+  private[this] lazy val controllers_ContentController_saveAnswer18_invoker = createInvoker(
+    ContentController_5.saveAnswer(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ContentController",
       "saveAnswer",
       Seq(classOf[Int]),
       "POST",
-      this.prefix + """frontpage/saveAnswer""",
+      this.prefix + """posts/saveAnswer""",
       """""",
       Seq()
     )
@@ -454,27 +427,27 @@ TODO change frontpage with posts""",
   def routes: PartialFunction[RequestHeader, Handler] = {
   
     // @LINE:6
-    case controllers_HomeController_index0_route(params@_) =>
+    case controllers_HomeControllerSTOF_index0_route(params@_) =>
       call { 
-        controllers_HomeController_index0_invoker.call(HomeController_7.index)
+        controllers_HomeControllerSTOF_index0_invoker.call(HomeControllerSTOF_1.index)
       }
   
     // @LINE:10
     case controllers_Assets_versioned1_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned1_invoker.call(Assets_5.versioned(path, file))
+        controllers_Assets_versioned1_invoker.call(Assets_4.versioned(path, file))
       }
   
     // @LINE:13
     case controllers_UserController_showLoginForm2_route(params@_) =>
       call { 
-        controllers_UserController_showLoginForm2_invoker.call(UserController_4.showLoginForm)
+        controllers_UserController_showLoginForm2_invoker.call(UserController_3.showLoginForm)
       }
   
     // @LINE:14
     case controllers_UserController_processLoginAttempt3_route(params@_) =>
       call { 
-        controllers_UserController_processLoginAttempt3_invoker.call(UserController_4.processLoginAttempt)
+        controllers_UserController_processLoginAttempt3_invoker.call(UserController_3.processLoginAttempt)
       }
   
     // @LINE:17
@@ -489,88 +462,82 @@ TODO change frontpage with posts""",
         controllers_LandingPageController_showLandingPage5_invoker.call(LandingPageController_2.showLandingPage)
       }
   
-    // @LINE:21
-    case controllers_ContactPageController_listContacts6_route(params@_) =>
+    // @LINE:24
+    case controllers_HomeControllerSTOF_index6_route(params@_) =>
       call { 
-        controllers_ContactPageController_listContacts6_invoker.call(ContactPageController_3.listContacts)
+        controllers_HomeControllerSTOF_index6_invoker.call(HomeControllerSTOF_1.index)
+      }
+  
+    // @LINE:25
+    case controllers_ContentController_sortByDate7_route(params@_) =>
+      call { 
+        controllers_ContentController_sortByDate7_invoker.call(ContentController_5.sortByDate)
       }
   
     // @LINE:26
-    case controllers_HomeControllerSTOF_index7_route(params@_) =>
+    case controllers_ContentController_sortByVotes8_route(params@_) =>
       call { 
-        controllers_HomeControllerSTOF_index7_invoker.call(HomeControllerSTOF_1.index)
+        controllers_ContentController_sortByVotes8_invoker.call(ContentController_5.sortByVotes)
       }
   
     // @LINE:27
-    case controllers_ContentController_sortByDate8_route(params@_) =>
-      call { 
-        controllers_ContentController_sortByDate8_invoker.call(ContentController_6.sortByDate)
+    case controllers_ContentController_searchByTag9_route(params@_) =>
+      call(params.fromQuery[String]("tag", None)) { (tag) =>
+        controllers_ContentController_searchByTag9_invoker.call(ContentController_5.searchByTag(tag))
       }
   
     // @LINE:28
-    case controllers_ContentController_sortByVotes9_route(params@_) =>
+    case controllers_ContentController_newPost10_route(params@_) =>
       call { 
-        controllers_ContentController_sortByVotes9_invoker.call(ContentController_6.sortByVotes)
+        controllers_ContentController_newPost10_invoker.call(ContentController_5.newPost())
       }
   
     // @LINE:29
-    case controllers_ContentController_searchByTag10_route(params@_) =>
-      call(params.fromQuery[String]("tag", None)) { (tag) =>
-        controllers_ContentController_searchByTag10_invoker.call(ContentController_6.searchByTag(tag))
+    case controllers_ContentController_savePost11_route(params@_) =>
+      call { 
+        controllers_ContentController_savePost11_invoker.call(ContentController_5.savePost())
       }
   
     // @LINE:30
-    case controllers_ContentController_newPost11_route(params@_) =>
-      call { 
-        controllers_ContentController_newPost11_invoker.call(ContentController_6.newPost())
+    case controllers_ContentController_upvote12_route(params@_) =>
+      call(params.fromQuery[Int]("id", None)) { (id) =>
+        controllers_ContentController_upvote12_invoker.call(ContentController_5.upvote(id))
       }
   
     // @LINE:31
-    case controllers_ContentController_savePost12_route(params@_) =>
-      call { 
-        controllers_ContentController_savePost12_invoker.call(ContentController_6.savePost())
+    case controllers_ContentController_downvote13_route(params@_) =>
+      call(params.fromQuery[Int]("id", None)) { (id) =>
+        controllers_ContentController_downvote13_invoker.call(ContentController_5.downvote(id))
       }
   
     // @LINE:32
-    case controllers_ContentController_upvote13_route(params@_) =>
+    case controllers_ContentController_upvoteAnswer14_route(params@_) =>
       call(params.fromQuery[Int]("id", None)) { (id) =>
-        controllers_ContentController_upvote13_invoker.call(ContentController_6.upvote(id))
+        controllers_ContentController_upvoteAnswer14_invoker.call(ContentController_5.upvoteAnswer(id))
       }
   
     // @LINE:33
-    case controllers_ContentController_downvote14_route(params@_) =>
+    case controllers_ContentController_downvoteAnswer15_route(params@_) =>
       call(params.fromQuery[Int]("id", None)) { (id) =>
-        controllers_ContentController_downvote14_invoker.call(ContentController_6.downvote(id))
-      }
-  
-    // @LINE:34
-    case controllers_ContentController_upvoteAnswer15_route(params@_) =>
-      call(params.fromQuery[Int]("id", None)) { (id) =>
-        controllers_ContentController_upvoteAnswer15_invoker.call(ContentController_6.upvoteAnswer(id))
+        controllers_ContentController_downvoteAnswer15_invoker.call(ContentController_5.downvoteAnswer(id))
       }
   
     // @LINE:35
-    case controllers_ContentController_downvoteAnswer16_route(params@_) =>
-      call(params.fromQuery[Int]("id", None)) { (id) =>
-        controllers_ContentController_downvoteAnswer16_invoker.call(ContentController_6.downvoteAnswer(id))
+    case controllers_ContentController_newAnswer16_route(params@_) =>
+      call(params.fromQuery[Int]("postId", None)) { (postId) =>
+        controllers_ContentController_newAnswer16_invoker.call(ContentController_5.newAnswer(postId))
+      }
+  
+    // @LINE:36
+    case controllers_ContentController_postWithAnswers17_route(params@_) =>
+      call(params.fromQuery[Int]("postid", None)) { (postid) =>
+        controllers_ContentController_postWithAnswers17_invoker.call(ContentController_5.postWithAnswers(postid))
       }
   
     // @LINE:37
-    case controllers_ContentController_newAnswer17_route(params@_) =>
+    case controllers_ContentController_saveAnswer18_route(params@_) =>
       call(params.fromQuery[Int]("postId", None)) { (postId) =>
-        controllers_ContentController_newAnswer17_invoker.call(ContentController_6.newAnswer(postId))
-      }
-  
-    // @LINE:38
-    case controllers_ContentController_postWithAnswers18_route(params@_) =>
-      call(params.fromQuery[Int]("postid", None)) { (postid) =>
-        controllers_ContentController_postWithAnswers18_invoker.call(ContentController_6.postWithAnswers(postid))
-      }
-  
-    // @LINE:39
-    case controllers_ContentController_saveAnswer19_route(params@_) =>
-      call(params.fromQuery[Int]("postId", None)) { (postId) =>
-        controllers_ContentController_saveAnswer19_invoker.call(ContentController_6.saveAnswer(postId))
+        controllers_ContentController_saveAnswer18_invoker.call(ContentController_5.saveAnswer(postId))
       }
   }
 }

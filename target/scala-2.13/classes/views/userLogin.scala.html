@@ -1,5 +1,6 @@
-@(form: Form[models.User], postUrl: Call)(implicit session: Session, request: MessagesRequestHeader)
-@main("User Login", session) {
+@import models.User.User
+@(form: Form[User], postUrl: Call)(implicit session: Session, request: MessagesRequestHeader)
+@mainSTOF("User Login", session) {
     @defining(play.core.PlayVersion.current) { version =>
     <div class="wrapper fadeInDown">
 

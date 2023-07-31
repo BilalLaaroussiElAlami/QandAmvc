@@ -3,37 +3,35 @@
 # https://www.playframework.com/documentation/latest/ScalaRouting
 # ~~~~
 
-GET / controllers.HomeController.index
+GET         /                            controllers.HomeControllerSTOF.index
 
 
 # Map static resources from the /public folder to the /assets URL path
-GET /assets/*file controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/*file                controllers.Assets.versioned(path="/public", file: Asset)
 
 # user/admin login
-GET /login controllers.UserController.showLoginForm
-POST /doLogin controllers.UserController.processLoginAttempt
+GET         /login                       controllers.UserController.showLoginForm
+POST        /doLogin                     controllers.UserController.processLoginAttempt
 
 # pages for authenticated users
-GET /logout controllers.AuthenticatedUserController.logout
-GET /landingPage controllers.LandingPageController.showLandingPage
+GET         /logout                      controllers.AuthenticatedUserController.logout
+GET         /landingPage                 controllers.LandingPageController.showLandingPage
 
-# show contacts
-GET /contacts controllers.ContactPageController.listContacts
 
 
 # ROUTES CONCERNING THE PROJCET:
 #TODO change frontpage with posts
-GET  /frontpage                      controllers.HomeControllerSTOF.index
-GET  /frontpage/sortedByDate         controllers.ContentController.sortByDate
-GET  /frontpage/sortedByVotes        controllers.ContentController.sortByVotes
-GET  /frontpage/searchByTag          controllers.ContentController.searchByTag(tag:String)
-GET  /frontpage/new                  controllers.ContentController.newPost()
-POST /frontpage                      controllers.ContentController.savePost()
-GET  /frontpage/upvote               controllers.ContentController.upvote(id:Int)
-GET  /frontpage/downvote             controllers.ContentController.downvote(id:Int)
-GET  /frontpage/upvoteAnswer         controllers.ContentController.upvoteAnswer(id:Int)
-GET  /frontpage/downvoteAnswer       controllers.ContentController.downvoteAnswer(id:Int)
+GET         /posts                       controllers.HomeControllerSTOF.index
+GET         /posts/sortedByDate          controllers.ContentController.sortByDate
+GET         /posts/sortedByVotes         controllers.ContentController.sortByVotes
+GET         /posts/searchByTag           controllers.ContentController.searchByTag(tag:String)
+GET         /posts/new                   controllers.ContentController.newPost()
+POST        /posts                       controllers.ContentController.savePost()
+GET         /posts/upvote                controllers.ContentController.upvote(id:Int)
+GET         /posts/downvote              controllers.ContentController.downvote(id:Int)
+GET         /posts/upvoteAnswer          controllers.ContentController.upvoteAnswer(id:Int)
+GET         /posts/downvoteAnswer        controllers.ContentController.downvoteAnswer(id:Int)
 
-GET /frontpage/newAnswer             controllers.ContentController.newAnswer(postId:Int)
-GET  /postsWithAnswers               controllers.ContentController.postWithAnswers(postid:Int)
-POST /frontpage/saveAnswer           controllers.ContentController.saveAnswer(postId:Int)
+GET         /posts/newAnswer             controllers.ContentController.newAnswer(postId:Int)
+GET         /postsWithAnswers            controllers.ContentController.postWithAnswers(postid:Int)
+POST        /posts/saveAnswer            controllers.ContentController.saveAnswer(postId:Int)

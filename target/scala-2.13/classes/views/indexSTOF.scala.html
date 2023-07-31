@@ -1,36 +1,56 @@
+@import models.Content.Post
 @(welcome: String, posts: Seq[Post])(implicit session: Session)
-
-
+@import b3._
 @mainSTOF(welcome, session) {
     @defining(play.core.PlayVersion.current) { version =>
         <div id="content" class="wrapper doc">
-                <h1>@welcome</h1>
+            <h1>@welcome</h1>
+
+            <btn><a href= @controllers.routes.ContentController.sortByDate >sort by date</a></btn>
+            <btn><a href= @controllers.routes.ContentController.sortByVotes >sort by votes</a></btn>
+
+
+            <h4> Search</h4>
+                <form action = @routes.ContentController.searchByTag("")" method="get">
+                <input type="text" name="tag" placeholder="Enter your search query">
+                <input type="submit" value="Search">
+            </form>
+
+
+            <!-- TODO change to seperate post view? -->
+            <dl>
             @for(post <- posts) {
-                <tr>
-                    <td>@post.code</td>
-                    <td>@post.date </td>
-                    <td>@post.votes </td>
-                    <td>@post.tags </td>
-                </tr>
+                <dl class="dl-horizontal" >
+                    <dt>title:</dt>
+                    <dd>@post.title<dd>
 
+                    <dt>text:</dt>
+                    <dd>@post.text </dd>
 
-                @b3.form(action = routes.Products.save()) {
-                    <fieldset>
-                        <legend>(new)</legend>
-                        EAN: @b3.text(productForm("ean"))
-                        Name: @b3.text(productForm("name"))
-                        Description: @b3.textarea(productForm("description"))
-                    </fieldset>
-                    @b3.submit(Symbol("class") -> "btn btn-default"){ Add }
-                }
+                    <dt>code:</dt>
+                    <dd>@post.code</dd>
+
+                    <dt>date:</dt>
+                    <dd>@post.date</dd>
+
+                    <dt>votes: </dt>
+                    <dd>@post.votes</dd>
+
+                    <dt>Tags: </dt>
+                    <dd> @post.tags.mkString(",")</dd>
+
+                    <!-- only loged in users can vote -->
+                    @if(session.get(models.Global.SESSION_USERNAME_KEY).nonEmpty) {
+                        <ul>
+                            <button><a href="@routes.ContentController.upvote(post.id)  "> upvote </a></button>
+                            <button><a href="@routes.ContentController.downvote(post.id)"> downvote </a></button>
+                            <button><a href="@routes.ContentController.postWithAnswers(post.id)">Expand</a> </button>
+                        </ul>
+                    }
+                </dl>
             }
-            }
+            </dl>
+    }
         </div>
 
-
-
-
-
-
     }
-}

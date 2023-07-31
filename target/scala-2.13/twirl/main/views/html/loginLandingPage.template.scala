@@ -25,7 +25,7 @@ object loginLandingPage extends _root_.play.twirl.api.BaseScalaTemplate[play.twi
 
 Seq[Any](format.raw/*1.59*/("""
 
-"""),_display_(/*3.2*/main("Welcome to Play", session)/*3.34*/ {_display_(Seq[Any](format.raw/*3.36*/("""
+"""),_display_(/*3.2*/mainSTOF("Welcome to Play", session)/*3.38*/ {_display_(Seq[Any](format.raw/*3.40*/("""
     """),format.raw/*4.5*/("""<div class="wrapper fadeInUp">
 
     <h1>Welcome! You are logged in.</h1>
@@ -51,8 +51,8 @@ Seq[Any](format.raw/*1.59*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/loginLandingPage.scala.html
-                  HASH: 2d0bf7c5253dfb9dabd240016cd703b89b8ec4de
-                  MATRIX: 741->1|865->58|893->61|933->93|972->95|1003->100|1108->217|1140->260|1172->265|1210->273
+                  HASH: 7246fcf87f05dd6707f2055583eab51317aa97ef
+                  MATRIX: 741->1|865->58|893->61|937->97|976->99|1007->104|1112->221|1144->264|1176->269|1214->277
                   LINES: 21->1|26->1|28->3|28->3|28->3|29->4|33->8|34->9|35->10|36->11
                   -- GENERATED --
               */

@@ -1,0 +1,23 @@
+@import models.Content.Answer
+@(answerForm: Form[Answer], postID: Int)(implicit session: Session, request: RequestHeader, messagesProvider: MessagesProvider, flash: Flash)
+
+@import b3._
+@implicitFieldConstructor = @{ b3.vertical.fieldConstructor() }
+
+
+@mainSTOF("Answer", session) {
+    <div id="content" class="wrapper doc">
+        <h2>Answer Details</h2>
+        @b3.form(action =  helper.CSRF(routes.ContentController.saveAnswer(postID))) {
+            <fieldset>
+                <legend>(new)</legend>
+                text: @b3.textarea(answerForm("text"))
+                code: @b3.textarea(answerForm("code"))
+            </fieldset>
+            <div>
+            @b3.submit(Symbol("class") -> "btn btn-default"){ Add}
+            </div>
+        }
+        <a href="@routes.HomeControllerSTOF.index">cancel</a>
+    </div>
+}
