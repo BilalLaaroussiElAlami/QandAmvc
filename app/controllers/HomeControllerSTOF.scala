@@ -22,7 +22,7 @@ class HomeControllerSTOF @Inject()(cc: ControllerComponents, postDao: PostDao) e
    * a path of `/`.
    */
   def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.indexSTOF("POSTS", postDao.posts ))
+    Ok(views.html.postsVIEW("POSTS", postDao.posts ))
   }
 
 

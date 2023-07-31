@@ -9,14 +9,13 @@ import javax.inject.Inject
 class PostDao @Inject()() {
 
   var posts: Seq[Post] = Seq(
-    Post("title",  "What does the * stand for?", "float *x", 2023, 0, List("C", "Pointer")),
-    Post("title","Why do i get a stackoverflow error?", "def main(): \n main()", 2015, 10, List("error", "python")),
-    Post("title","What is a macro?", "#define SIZE 30", 2019, 5, List("macros", "C")),
-    Post("title","What is an if", "if true ok", 2017, 2, List("beginner")),
-    Post("title","What is an if", "if true ok", 2017, 2, List("beginner")),
-    Post("title","What is an if", "if true ok", 2017, 2, List("beginner")),
-    Post("title","What is an if", "if true ok", 2017, 2, List("beginner")),
-    Post("title","What is an if", "if true ok", 2017, 2, List("beginner")))
+    Post("meaning *",    "What does the * stand for?",          "float *x",                    2023, 0,  List("C", "Pointer")),
+    Post("why error",    "Why do i get a stackoverflow error?", "def main(): \n main()",       2015, 10 ,List("error", "python")),
+    Post("macro meaning","What is a macro?",                    "#define SIZE 30",             2019, 5,  List("macros", "C")),
+    Post("MVC",          "How does MVC work",                   "",                            2017, 2,  List("scala", "web")),
+    Post("if",           "What is an if",                       "if true ok",                  2017, 2,  List("beginner", "flow")),
+    Post("match",        "how does match work",                 "m match\n\tx:Int => print(x)",2017, 2,  List("intermediate", "flow")))
+
 
   def findbyId(id:Int): Post = {
     posts.find(p => p.id == id).getOrElse(throw Exception(JsError(s"couldn't find post by id $id")))

@@ -14,13 +14,13 @@ import play.api.data.Forms._
 @Singleton
 class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, answerDao: AnswerDao) extends AbstractController(cc) with play.api.i18n.I18nSupport {
 
-  def upvote(id:Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    postDao.upvote(id)
-    Ok(views.html.indexSTOF("POSTS", postDao.posts))
-  }
+    def upvote(id:Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+      postDao.upvote(id)
+      Ok(views.html.postsVIEW("POSTS", postDao.posts))
+    }
   def downvote(id:Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     postDao.downvote(id)
-    Ok(views.html.indexSTOF("POSTS", postDao.posts))
+    Ok(views.html.postsVIEW("POSTS", postDao.posts))
   }
   def upvotePostFromPostWithAnswerPage(id:Int) = {
     postDao.upvote(id)
@@ -42,14 +42,14 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
   }
 
   def sortByDate(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.indexSTOF("POSTS", postDao.sortPostsByDate()))
+    Ok(views.html.postsVIEW("POSTS", postDao.sortPostsByDate()))
   }
   def searchByTag(tag:String): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     val posts = postDao.searchByTag(tag)
-    Ok(views.html.indexSTOF("POSTS", posts))
+    Ok(views.html.postsVIEW("POSTS", posts))
   }
   def sortByVotes(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.indexSTOF("POSTS", postDao.sortPostsByUpvotes()))
+    Ok(views.html.postsVIEW("POSTS", postDao.sortPostsByUpvotes()))
   }
 
 
@@ -72,7 +72,7 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
         postForm.bind(request.flash.data)  //if previous submission has errors we don't clear all fields -> more user friendly
       else
         postForm
-    Ok(views.html.addPostSTOF(form))
+    Ok(views.html.addPostVIEW(form))
   }
   def savePost() = Action { implicit request =>
     val newPostForm = postForm.bindFromRequest()
@@ -86,7 +86,7 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
       },
       success = { newPost =>
         postDao.add(newPost)
-        Ok(views.html.indexSTOF("POSTS", postDao.posts))  //redirect to posts page
+        Ok(views.html.postsVIEW("POSTS", postDao.posts))  //redirect to posts page
       }
     )
   }
@@ -95,7 +95,7 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
     val post = postDao.findbyId(postid)
     val answerIDs = post.answers
     val answers = answerIDs.map(id => answerDao.findById(id))
-    Ok(views.html.postWithAnswers("", post, answers))
+    Ok(views.html.postWithAnswersVIEW("", post, answers))
   }
 
   private val answerForm: Form[Answer] =
@@ -116,7 +116,7 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
         answerForm.bind(request.flash.data)  //if previous submission had errors we bind to the values of previous submission -> more user friendly
       else
         answerForm
-    Ok(views.html.addAnswerSTOF(form,  postid))
+    Ok(views.html.addAnswerVIEW(form,  postid))
   }
   def saveAnswer(postId: Int) = Action { implicit request =>
     val newAnswerForm = answerForm.bindFromRequest()
@@ -135,7 +135,7 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
         val post = postDao.findbyId(postId)
         val answerIDs = post.answers
         val answers = answerIDs.map(id => answerDao.findById(id))
-        Ok(views.html.postWithAnswers("", post, answers))
+        Ok(views.html.postWithAnswersVIEW("", post, answers))
       }
     )
   }
