@@ -15,7 +15,6 @@ POST        /doLogin                     controllers.UserController.processLogin
 
 # pages for authenticated users
 GET         /logout                      controllers.AuthenticatedUserController.logout
-GET         /landingPage                 controllers.LandingPageController.showLandingPage
 
 
 

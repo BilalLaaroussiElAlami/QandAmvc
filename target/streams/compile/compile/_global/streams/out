@@ -1,6 +1,71 @@
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:6:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method index,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /                            controllers.HomeControllerSTOF.index
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:23:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method index,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts                       controllers.HomeControllerSTOF.index
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:24:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method sortByDate,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts/sortedByDate          controllers.ContentController.sortByDate
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:25:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method sortByVotes,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts/sortedByVotes         controllers.ContentController.sortByVotes
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:6:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method index,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /                            controllers.HomeControllerSTOF.index
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:23:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method index,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts                       controllers.HomeControllerSTOF.index
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:24:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method sortByDate,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts/sortedByDate          controllers.ContentController.sortByDate
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:25:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method sortByVotes,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts/sortedByVotes         controllers.ContentController.sortByVotes
+[warn] 8 warnings found
 [warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/app/controllers/UserController.scala:54:53: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method bindFromRequest,
 [warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
 [warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
 [warn]         val formValidationResult: Form[User] = form.bindFromRequest
 [warn]                                                     ^
-[warn] one warning found
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:6:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method index,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /                            controllers.HomeControllerSTOF.index
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:23:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method index,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts                       controllers.HomeControllerSTOF.index
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:24:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method sortByDate,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts/sortedByDate          controllers.ContentController.sortByDate
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:25:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method sortByVotes,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts/sortedByVotes         controllers.ContentController.sortByVotes
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:6:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method index,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /                            controllers.HomeControllerSTOF.index
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:23:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method index,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts                       controllers.HomeControllerSTOF.index
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:24:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method sortByDate,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts/sortedByDate          controllers.ContentController.sortByDate
+[warn] /Applications/Computerwetenschappen/SWA/AssignmentMVC/Session07_solution/conf/routes:25:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method sortByVotes,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn] GET         /posts/sortedByVotes         controllers.ContentController.sortByVotes
+[warn] 9 warnings found

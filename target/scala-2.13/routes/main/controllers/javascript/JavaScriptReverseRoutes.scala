@@ -49,7 +49,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:25
+  // @LINE:24
   class ReverseContentController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -57,7 +57,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:33
+    // @LINE:32
     def downvoteAnswer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.downvoteAnswer",
       """
@@ -67,7 +67,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:40
+    // @LINE:39
     def saveAnswer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.saveAnswer",
       """
@@ -77,7 +77,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:29
+    // @LINE:28
     def savePost: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.savePost",
       """
@@ -87,7 +87,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:38
+    // @LINE:37
     def newAnswer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.newAnswer",
       """
@@ -97,7 +97,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:34
+    // @LINE:33
     def upvotePostFromPostWithAnswerPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.upvotePostFromPostWithAnswerPage",
       """
@@ -107,7 +107,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:26
+    // @LINE:25
     def sortByVotes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.sortByVotes",
       """
@@ -117,7 +117,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:39
+    // @LINE:38
     def postWithAnswers: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.postWithAnswers",
       """
@@ -127,7 +127,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:31
+    // @LINE:30
     def downvote: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.downvote",
       """
@@ -137,7 +137,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:28
+    // @LINE:27
     def newPost: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.newPost",
       """
@@ -147,7 +147,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
+    // @LINE:26
     def searchByTag: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.searchByTag",
       """
@@ -157,7 +157,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:35
+    // @LINE:34
     def downvotePostFromPostWithAnswerPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.downvotePostFromPostWithAnswerPage",
       """
@@ -167,7 +167,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:32
+    // @LINE:31
     def upvoteAnswer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.upvoteAnswer",
       """
@@ -177,7 +177,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:25
+    // @LINE:24
     def sortByDate: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.sortByDate",
       """
@@ -187,7 +187,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:30
+    // @LINE:29
     def upvote: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.upvote",
       """
@@ -223,26 +223,6 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "doLogin"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:18
-  class ReverseLandingPageController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:18
-    def showLandingPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.LandingPageController.showLandingPage",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "landingPage"})
         }
       """
     )

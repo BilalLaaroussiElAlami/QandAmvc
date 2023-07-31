@@ -113,7 +113,7 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
     println("called new answer")
     val form =
       if (request.flash.get("error").isDefined)
-        answerForm.bind(request.flash.data)  //if previous submission has errors we don't clear all fields -> more user friendly
+        answerForm.bind(request.flash.data)  //if previous submission had errors we bind to the values of previous submission -> more user friendly
       else
         answerForm
     Ok(views.html.addAnswerSTOF(form,  postid))

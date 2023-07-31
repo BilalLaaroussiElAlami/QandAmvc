@@ -58,7 +58,7 @@ Seq[Any](format.raw/*8.1*/("""
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href=""""),_display_(/*38.56*/routes/*38.62*/.HomeControllerSTOF.index),format.raw/*38.87*/("""">ALL POSTS</a>
+                        <a class="navbar-brand" href=""""),_display_(/*38.56*/routes/*38.62*/.HomeControllerSTOF.index),format.raw/*38.87*/("""">All Posts</a>
                     </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -97,7 +97,7 @@ Seq[Any](format.raw/*8.1*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/mainSTOF.scala.html
-                  HASH: 0c5c25bf498699e68213b26255fbeca4ea4c70e8
+                  HASH: 305d60ea029c1720274cc7670df2b7e711394457
                   MATRIX: 994->255|1136->304|1166->307|1254->368|1280->373|1448->514|1463->520|1526->561|2658->1666|2673->1672|2719->1697|3056->2007|3124->2066|3164->2068|3221->2097|3262->2111|3277->2117|3327->2146|3388->2189|3401->2194|3440->2195|3497->2224|3538->2238|3553->2244|3609->2279|3696->2339|3711->2345|3760->2373|3836->2418|3889->2443|4106->2633|4134->2640|4166->2645
                   LINES: 26->7|31->8|34->11|38->15|38->15|40->17|40->17|40->17|61->38|61->38|61->38|67->44|67->44|67->44|68->45|68->45|68->45|68->45|69->46|69->46|69->46|70->47|70->47|70->47|70->47|71->48|71->48|71->48|72->49|73->50|80->57|80->57|81->58
                   -- GENERATED --
