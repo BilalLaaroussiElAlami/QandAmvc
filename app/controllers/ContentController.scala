@@ -15,7 +15,6 @@ import play.api.data.Forms._
 class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, answerDao: AnswerDao) extends AbstractController(cc) with play.api.i18n.I18nSupport {
 
   def upvote(id:Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    println("THIS SHOULDNT BE PRINTED ☢️")
     postDao.upvote(id)
     Ok(views.html.indexSTOF("POSTS", postDao.posts))
   }
@@ -23,6 +22,15 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
     postDao.downvote(id)
     Ok(views.html.indexSTOF("POSTS", postDao.posts))
   }
+  def upvotePostFromPostWithAnswerPage(id:Int) = {
+    postDao.upvote(id)
+    postWithAnswers(id)
+  }
+  def downvotePostFromPostWithAnswerPage(id:Int) = {
+    postDao.downvote(id)
+    postWithAnswers(id)
+  }
+
   def upvoteAnswer(id:Int) =  {
     println(s" ✅called upvoteAnswer with id $id")
     answerDao.upvote(id)

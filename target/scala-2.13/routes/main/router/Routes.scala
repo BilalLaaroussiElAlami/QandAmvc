@@ -70,6 +70,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/downvote""", """controllers.ContentController.downvote(id:Int)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/upvoteAnswer""", """controllers.ContentController.upvoteAnswer(id:Int)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/downvoteAnswer""", """controllers.ContentController.downvoteAnswer(id:Int)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/upvotePostFromPostWithAnswerPage""", """controllers.ContentController.upvotePostFromPostWithAnswerPage(id:Int)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/downvotePostFromPostWithAnswerPage""", """controllers.ContentController.downvotePostFromPostWithAnswerPage(id:Int)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/newAnswer""", """controllers.ContentController.newAnswer(postId:Int)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """postsWithAnswers""", """controllers.ContentController.postWithAnswers(postid:Int)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """posts/saveAnswer""", """controllers.ContentController.saveAnswer(postId:Int)"""),
@@ -369,11 +371,47 @@ TODO change frontpage with posts""",
     )
   )
 
+  // @LINE:34
+  private[this] lazy val controllers_ContentController_upvotePostFromPostWithAnswerPage16_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/upvotePostFromPostWithAnswerPage")))
+  )
+  private[this] lazy val controllers_ContentController_upvotePostFromPostWithAnswerPage16_invoker = createInvoker(
+    ContentController_5.upvotePostFromPostWithAnswerPage(fakeValue[Int]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ContentController",
+      "upvotePostFromPostWithAnswerPage",
+      Seq(classOf[Int]),
+      "GET",
+      this.prefix + """posts/upvotePostFromPostWithAnswerPage""",
+      """""",
+      Seq()
+    )
+  )
+
   // @LINE:35
-  private[this] lazy val controllers_ContentController_newAnswer16_route = Route("GET",
+  private[this] lazy val controllers_ContentController_downvotePostFromPostWithAnswerPage17_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/downvotePostFromPostWithAnswerPage")))
+  )
+  private[this] lazy val controllers_ContentController_downvotePostFromPostWithAnswerPage17_invoker = createInvoker(
+    ContentController_5.downvotePostFromPostWithAnswerPage(fakeValue[Int]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ContentController",
+      "downvotePostFromPostWithAnswerPage",
+      Seq(classOf[Int]),
+      "GET",
+      this.prefix + """posts/downvotePostFromPostWithAnswerPage""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:38
+  private[this] lazy val controllers_ContentController_newAnswer18_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/newAnswer")))
   )
-  private[this] lazy val controllers_ContentController_newAnswer16_invoker = createInvoker(
+  private[this] lazy val controllers_ContentController_newAnswer18_invoker = createInvoker(
     ContentController_5.newAnswer(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -387,11 +425,11 @@ TODO change frontpage with posts""",
     )
   )
 
-  // @LINE:36
-  private[this] lazy val controllers_ContentController_postWithAnswers17_route = Route("GET",
+  // @LINE:39
+  private[this] lazy val controllers_ContentController_postWithAnswers19_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("postsWithAnswers")))
   )
-  private[this] lazy val controllers_ContentController_postWithAnswers17_invoker = createInvoker(
+  private[this] lazy val controllers_ContentController_postWithAnswers19_invoker = createInvoker(
     ContentController_5.postWithAnswers(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -405,11 +443,11 @@ TODO change frontpage with posts""",
     )
   )
 
-  // @LINE:37
-  private[this] lazy val controllers_ContentController_saveAnswer18_route = Route("POST",
+  // @LINE:40
+  private[this] lazy val controllers_ContentController_saveAnswer20_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("posts/saveAnswer")))
   )
-  private[this] lazy val controllers_ContentController_saveAnswer18_invoker = createInvoker(
+  private[this] lazy val controllers_ContentController_saveAnswer20_invoker = createInvoker(
     ContentController_5.saveAnswer(fakeValue[Int]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -522,22 +560,34 @@ TODO change frontpage with posts""",
         controllers_ContentController_downvoteAnswer15_invoker.call(ContentController_5.downvoteAnswer(id))
       }
   
+    // @LINE:34
+    case controllers_ContentController_upvotePostFromPostWithAnswerPage16_route(params@_) =>
+      call(params.fromQuery[Int]("id", None)) { (id) =>
+        controllers_ContentController_upvotePostFromPostWithAnswerPage16_invoker.call(ContentController_5.upvotePostFromPostWithAnswerPage(id))
+      }
+  
     // @LINE:35
-    case controllers_ContentController_newAnswer16_route(params@_) =>
-      call(params.fromQuery[Int]("postId", None)) { (postId) =>
-        controllers_ContentController_newAnswer16_invoker.call(ContentController_5.newAnswer(postId))
+    case controllers_ContentController_downvotePostFromPostWithAnswerPage17_route(params@_) =>
+      call(params.fromQuery[Int]("id", None)) { (id) =>
+        controllers_ContentController_downvotePostFromPostWithAnswerPage17_invoker.call(ContentController_5.downvotePostFromPostWithAnswerPage(id))
       }
   
-    // @LINE:36
-    case controllers_ContentController_postWithAnswers17_route(params@_) =>
+    // @LINE:38
+    case controllers_ContentController_newAnswer18_route(params@_) =>
+      call(params.fromQuery[Int]("postId", None)) { (postId) =>
+        controllers_ContentController_newAnswer18_invoker.call(ContentController_5.newAnswer(postId))
+      }
+  
+    // @LINE:39
+    case controllers_ContentController_postWithAnswers19_route(params@_) =>
       call(params.fromQuery[Int]("postid", None)) { (postid) =>
-        controllers_ContentController_postWithAnswers17_invoker.call(ContentController_5.postWithAnswers(postid))
+        controllers_ContentController_postWithAnswers19_invoker.call(ContentController_5.postWithAnswers(postid))
       }
   
-    // @LINE:37
-    case controllers_ContentController_saveAnswer18_route(params@_) =>
+    // @LINE:40
+    case controllers_ContentController_saveAnswer20_route(params@_) =>
       call(params.fromQuery[Int]("postId", None)) { (postId) =>
-        controllers_ContentController_saveAnswer18_invoker.call(ContentController_5.saveAnswer(postId))
+        controllers_ContentController_saveAnswer20_invoker.call(ContentController_5.saveAnswer(postId))
       }
   }
 }

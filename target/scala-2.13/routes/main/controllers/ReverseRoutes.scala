@@ -52,7 +52,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "posts/downvoteAnswer" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
     }
   
-    // @LINE:37
+    // @LINE:40
     def saveAnswer(postId:Int): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "posts/saveAnswer" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("postId", postId)))))
@@ -64,10 +64,16 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "posts")
     }
   
-    // @LINE:35
+    // @LINE:38
     def newAnswer(postId:Int): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "posts/newAnswer" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("postId", postId)))))
+    }
+  
+    // @LINE:34
+    def upvotePostFromPostWithAnswerPage(id:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "posts/upvotePostFromPostWithAnswerPage" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
     }
   
     // @LINE:26
@@ -76,7 +82,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "posts/sortedByVotes")
     }
   
-    // @LINE:36
+    // @LINE:39
     def postWithAnswers(postid:Int): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "postsWithAnswers" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("postid", postid)))))
@@ -98,6 +104,12 @@ package controllers {
     def searchByTag(tag:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "posts/searchByTag" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("tag", tag)))))
+    }
+  
+    // @LINE:35
+    def downvotePostFromPostWithAnswerPage(id:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "posts/downvotePostFromPostWithAnswerPage" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
     }
   
     // @LINE:32

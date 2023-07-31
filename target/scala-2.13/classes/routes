@@ -31,6 +31,9 @@ GET         /posts/upvote                controllers.ContentController.upvote(id
 GET         /posts/downvote              controllers.ContentController.downvote(id:Int)
 GET         /posts/upvoteAnswer          controllers.ContentController.upvoteAnswer(id:Int)
 GET         /posts/downvoteAnswer        controllers.ContentController.downvoteAnswer(id:Int)
+GET         /posts/upvotePostFromPostWithAnswerPage          controllers.ContentController.upvotePostFromPostWithAnswerPage(id:Int)
+GET         /posts/downvotePostFromPostWithAnswerPage        controllers.ContentController.downvotePostFromPostWithAnswerPage(id:Int)
+
 
 GET         /posts/newAnswer             controllers.ContentController.newAnswer(postId:Int)
 GET         /postsWithAnswers            controllers.ContentController.postWithAnswers(postid:Int)

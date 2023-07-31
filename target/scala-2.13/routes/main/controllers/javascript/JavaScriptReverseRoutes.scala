@@ -67,7 +67,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:37
+    // @LINE:40
     def saveAnswer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.saveAnswer",
       """
@@ -87,12 +87,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:35
+    // @LINE:38
     def newAnswer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.newAnswer",
       """
         function(postId0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "posts/newAnswer" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("postId", postId0)])})
+        }
+      """
+    )
+  
+    // @LINE:34
+    def upvotePostFromPostWithAnswerPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.upvotePostFromPostWithAnswerPage",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "posts/upvotePostFromPostWithAnswerPage" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
         }
       """
     )
@@ -107,7 +117,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:36
+    // @LINE:39
     def postWithAnswers: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ContentController.postWithAnswers",
       """
@@ -143,6 +153,16 @@ package controllers.javascript {
       """
         function(tag0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "posts/searchByTag" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("tag", tag0)])})
+        }
+      """
+    )
+  
+    // @LINE:35
+    def downvotePostFromPostWithAnswerPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ContentController.downvotePostFromPostWithAnswerPage",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "posts/downvotePostFromPostWithAnswerPage" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
         }
       """
     )
