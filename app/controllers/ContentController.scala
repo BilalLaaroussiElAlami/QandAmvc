@@ -15,6 +15,7 @@ import play.api.data.Forms._
 class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, answerDao: AnswerDao) extends AbstractController(cc) with play.api.i18n.I18nSupport {
 
   def upvote(id:Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    println("THIS SHOULDNT BE PRINTED ☢️")
     postDao.upvote(id)
     Ok(views.html.indexSTOF("POSTS", postDao.posts))
   }
@@ -23,11 +24,13 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
     Ok(views.html.indexSTOF("POSTS", postDao.posts))
   }
   def upvoteAnswer(id:Int) =  {
-    println(s"called upvoteAnswer with id $id")
+    println(s" ✅called upvoteAnswer with id $id")
     answerDao.upvote(id)
-    postWithAnswers(answerDao.findById(id).post)
+    val postId = answerDao.findById(id).post
+    postWithAnswers(postId)
   }
   def downvoteAnswer(id:Int) = {
+    println(s" ✅called downvoteAnswrt with id $id")
     answerDao.downvote(id)
     postWithAnswers(answerDao.findById(id).post)
   }
@@ -89,6 +92,7 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
   }
 
   def postWithAnswers(postid:Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    println("called in here 🤔")
     val post = postDao.findbyId(postid)
     val answerIDs = post.answers
     val answers = answerIDs.map(id => answerDao.findById(id))
@@ -102,7 +106,7 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
         "code" -> nonEmptyText,
         "date" -> default(number, 2023),
         "votes"-> default(number,0),
-        "post" -> default(number,0)
+        "post" -> default(number,0)  //HERE IS THE BUG
       )
       (Answer.apply)(Answer.unapply))
 
@@ -113,6 +117,8 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
         answerForm.bind(request.flash.data)  //if previous submission has errors we don't clear all fields -> more user friendly
       else
         answerForm
+
+
     Ok(views.html.addAnswerSTOF(form,  postid))
   }
   def saveAnswer(postId: Int) = Action { implicit request =>
@@ -128,6 +134,7 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
       },
       success = { newAnswer =>
         print("succesfull form ",newAnswer)
+        newAnswer.post = postId
         answerDao.add(newAnswer)
         postDao.addAnswer(postId, newAnswer.id)
         val post = postDao.findbyId(postId)

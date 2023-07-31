@@ -1,7 +1,7 @@
 package models.Content
 
 class Content(val  text:String, val code:String, val date:Int, var votes:Int){
-  def upvote() = votes+=1
+  def upvote() = { print("GOT HERE 🙏 D");votes+=1}
   def downvote() = votes-=1
   val id = Content.generateID()
 }

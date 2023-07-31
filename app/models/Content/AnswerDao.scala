@@ -6,7 +6,7 @@ import play.api.libs.json.JsResult.Exception
 import javax.inject.Inject
 
 @javax.inject.Singleton
-class AnswerDao @Inject()(postDao: PostDao) {
+class AnswerDao @Inject()() {
   var answers:Seq[Answer] = Seq()
 
   def add(answer: Answer) = {
@@ -18,13 +18,16 @@ class AnswerDao @Inject()(postDao: PostDao) {
   }
 
   def upvote(id: Int) = {
+    print("got here A🙏")
     val index = answers.indexWhere(p => p.id == id)
-    val answer = answers(index)
-    answer.upvote()
+    print("got here B 🙏")
+    val answerr = answers(index)
+    print("got here C 🙏")
+    answerr.upvote()
   }
   def downvote(id: Int) = {
     val index = answers.indexWhere(p => p.id == id)
-    val answer = answers(index)
-    answer.downvote()
+    val answerr = answers(index)
+    answerr.downvote()
   }
 }

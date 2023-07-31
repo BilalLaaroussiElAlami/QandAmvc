@@ -19,7 +19,7 @@ class PostDao @Inject()() {
     Post("title","What is an if", "if true ok", 2017, 2, List("beginner")))
 
   def findbyId(id:Int): Post = {
-    posts.find(p => p.id == id).getOrElse(throw Exception(JsError("couldn't find post by id")))
+    posts.find(p => p.id == id).getOrElse(throw Exception(JsError(s"couldn't find post by id $id")))
   }
   def upvote(id: Int) = {
     val index = posts.indexWhere(p => p.id == id)
