@@ -15,7 +15,7 @@ import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
 
-object mainSTOF extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,Session,Html,play.twirl.api.HtmlFormat.Appendable] {
+object mainVIEW extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,Session,Html,play.twirl.api.HtmlFormat.Appendable] {
 
   /*
 * This template is called from the `index` template. This template

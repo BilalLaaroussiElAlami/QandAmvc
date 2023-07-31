@@ -16,7 +16,7 @@ import play.api.mvc._
 import play.api.data._
 /*1.2*/import models.User.User
 
-object userLogin extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template4[Form[User],Call,Session,MessagesRequestHeader,play.twirl.api.HtmlFormat.Appendable] {
+object userLoginVIEW extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template4[Form[User],Call,Session,MessagesRequestHeader,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
   def apply/*2.2*/(form: Form[User], postUrl: Call)(implicit session: Session, request: MessagesRequestHeader):play.twirl.api.HtmlFormat.Appendable = {
@@ -86,7 +86,7 @@ Seq[Any](_display_(/*3.2*/mainSTOF("User Login", session)/*3.33*/ {_display_(Seq
                   -- GENERATED --
                   SOURCE: app/views/userLoginVIEW.scala.html
                   HASH: dcf7eaa448f9e86951d1f5e467d0f1caba419623
-                  MATRIX: 432->1|803->26|989->120|1028->151|1067->153|1098->159|1145->198|1195->211|1226->216|1327->291|1342->298|1365->313|1425->336|1466->349|1499->355|1524->359|1554->362|1580->367|1627->383|1665->454|1702->464|1735->488|1775->490|1816->504|1829->508|1855->525|1915->547|1960->564|2021->598|2035->603|2060->607|2090->610|2104->615|2133->623|2178->640|2229->660|2270->670|2308->681|2323->687|2381->736|2421->738|2459->749|2474->755|2510->770|2548->781|2563->787|2800->1003|2838->1014|2853->1020|3094->1240|3135->1253|3216->1303|3248->1308|3297->1327|3329->1329
+                  MATRIX: 432->1|807->26|993->120|1032->151|1071->153|1102->159|1149->198|1199->211|1230->216|1331->291|1346->298|1369->313|1429->336|1470->349|1503->355|1528->359|1558->362|1584->367|1631->383|1669->454|1706->464|1739->488|1779->490|1820->504|1833->508|1859->525|1919->547|1964->564|2025->598|2039->603|2064->607|2094->610|2108->615|2137->623|2182->640|2233->660|2274->670|2312->681|2327->687|2385->736|2425->738|2463->749|2478->755|2514->770|2552->781|2567->787|2804->1003|2842->1014|2857->1020|3098->1240|3139->1253|3220->1303|3252->1308|3301->1327|3333->1329
                   LINES: 17->1|22->2|27->3|27->3|27->3|28->4|28->4|28->4|29->5|33->9|33->9|33->9|33->9|34->10|34->10|34->10|34->10|34->10|35->11|37->13|38->14|38->14|38->14|39->15|39->15|39->15|39->15|40->16|41->17|41->17|41->17|41->17|41->17|41->17|42->18|43->19|44->20|46->22|46->22|46->22|46->22|48->24|48->24|48->24|50->26|50->26|56->32|58->34|58->34|64->40|65->41|66->42|67->43|69->45|70->46
                   -- GENERATED --
               */

@@ -16,7 +16,7 @@ import play.api.mvc._
 import play.api.data._
 /*1.2*/import models.Content.Answer
 
-object addAnswerSTOF extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template6[Form[Answer],Int,Session,RequestHeader,MessagesProvider,Flash,play.twirl.api.HtmlFormat.Appendable] {
+object addAnswerVIEW extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template6[Form[Answer],Int,Session,RequestHeader,MessagesProvider,Flash,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
   def apply/*2.2*/(answerForm: Form[Answer], postID: Int)(implicit session: Session, request: RequestHeader, messagesProvider: MessagesProvider, flash: Flash):play.twirl.api.HtmlFormat.Appendable = {

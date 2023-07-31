@@ -29,9 +29,9 @@
                     <!-- only loged in users can vote -->
                 @if(session.get(models.Global.SESSION_USERNAME_KEY).nonEmpty) {
                     <ul>
-                        <button><a href="@routes.ContentController.upvote(post.id)  "> upvote </a></button>
-                        <button><a href="@routes.ContentController.downvote(post.id)"> downvote </a></button>
-                        <button><a href="@routes.ContentController.newAnswer(post.id)"> answer</a>  </button>
+                        <button><a href="@routes.ContentController.upvotePostFromPostWithAnswerPage(post.id)  "> upvote   </a></button>
+                        <button><a href="@routes.ContentController.downvotePostFromPostWithAnswerPage(post.id)"> downvote </a></button>
+                        <button><a href="@routes.ContentController.newAnswer(post.id)"> answer </a> </button>
                     </ul>
                 }
             </dl>

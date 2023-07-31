@@ -16,7 +16,7 @@ import play.api.mvc._
 import play.api.data._
 /*1.2*/import models.Content.Post
 
-object indexSTOF extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,Seq[Post],Session,play.twirl.api.HtmlFormat.Appendable] {
+object indexVIEW extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,Seq[Post],Session,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
   def apply/*2.2*/(welcome: String, posts: Seq[Post])(implicit session: Session):play.twirl.api.HtmlFormat.Appendable = {
