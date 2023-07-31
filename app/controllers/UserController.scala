@@ -57,7 +57,6 @@ class UserController @Inject()(
             successFunction
         )
     }
-
     private def lengthIsGreaterThanNCharacters(s: String, n: Int): Boolean = {
         if (s.length > n) true else false
     }
