@@ -18,11 +18,8 @@ class AnswerDao @Inject()() {
   }
 
   def upvote(id: Int) = {
-    print("got here A🙏")
     val index = answers.indexWhere(p => p.id == id)
-    print("got here B 🙏")
     val answerr = answers(index)
-    print("got here C 🙏")
     answerr.upvote()
   }
   def downvote(id: Int) = {

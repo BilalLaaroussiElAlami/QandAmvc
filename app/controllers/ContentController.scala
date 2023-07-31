@@ -32,28 +32,23 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
   }
 
   def upvoteAnswer(id:Int) =  {
-    println(s" ✅called upvoteAnswer with id $id")
     answerDao.upvote(id)
     val postId = answerDao.findById(id).post
     postWithAnswers(postId)
   }
   def downvoteAnswer(id:Int) = {
-    println(s" ✅called downvoteAnswrt with id $id")
     answerDao.downvote(id)
     postWithAnswers(answerDao.findById(id).post)
   }
 
   def sortByDate(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    println("called sortbydate")
     Ok(views.html.indexSTOF("POSTS", postDao.sortPostsByDate()))
   }
   def searchByTag(tag:String): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    println("called search by tag")
     val posts = postDao.searchByTag(tag)
     Ok(views.html.indexSTOF("POSTS", posts))
   }
   def sortByVotes(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    println("called sortbyvotes")
     Ok(views.html.indexSTOF("POSTS", postDao.sortPostsByUpvotes()))
   }
 
@@ -72,7 +67,6 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
   def f(s:String):List[String] = s.split(",").toList
   def g(l:List[String]):String = l.mkString(",")
   def newPost(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    println("called newProduct")
     val form =
       if (request.flash.get("error").isDefined)
         postForm.bind(request.flash.data)  //if previous submission has errors we don't clear all fields -> more user friendly
@@ -81,7 +75,6 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
     Ok(views.html.addPostSTOF(form))
   }
   def savePost() = Action { implicit request =>
-    print("called save")
     val newPostForm = postForm.bindFromRequest()
 
     newPostForm.fold(
@@ -92,7 +85,6 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
         )
       },
       success = { newPost =>
-         print("newProduct: ",newPost)
         postDao.add(newPost)
         Ok(views.html.indexSTOF("POSTS", postDao.posts))  //redirect to posts page
       }
@@ -100,7 +92,6 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
   }
 
   def postWithAnswers(postid:Int): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    println("called in here 🤔")
     val post = postDao.findbyId(postid)
     val answerIDs = post.answers
     val answers = answerIDs.map(id => answerDao.findById(id))
@@ -114,7 +105,7 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
         "code" -> nonEmptyText,
         "date" -> default(number, 2023),
         "votes"-> default(number,0),
-        "post" -> default(number,0)  //HERE IS THE BUG
+        "post" -> default(number,0)  //postid is temporary 0, but this will be changed once whe add the answer object to the answerdai
       )
       (Answer.apply)(Answer.unapply))
 
@@ -125,14 +116,10 @@ class ContentController  @Inject()(cc: ControllerComponents, postDao: PostDao, a
         answerForm.bind(request.flash.data)  //if previous submission has errors we don't clear all fields -> more user friendly
       else
         answerForm
-
-
     Ok(views.html.addAnswerSTOF(form,  postid))
   }
   def saveAnswer(postId: Int) = Action { implicit request =>
-    print(s"called save answer with postid $postId")
     val newAnswerForm = answerForm.bindFromRequest()
-
     newAnswerForm.fold(
       hasErrors = { form =>
         Redirect(routes.ContentController.newAnswer(postId)).flashing(

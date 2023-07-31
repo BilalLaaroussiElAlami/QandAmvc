@@ -22,7 +22,6 @@ class HomeControllerSTOF @Inject()(cc: ControllerComponents, postDao: PostDao) e
    * a path of `/`.
    */
   def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    println("called index")
     Ok(views.html.indexSTOF("POSTS", postDao.posts ))
   }
 
